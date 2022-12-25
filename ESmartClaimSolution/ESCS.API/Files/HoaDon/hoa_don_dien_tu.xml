@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<inv:transaction xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:inv="http://laphoadon.gdt.gov.vn/2014/09/invoicexml/v1">
+  <inv:resend>0</inv:resend>
+  <inv:invoices>
+    <inv:invoice xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:inv="http://laphoadon.gdt.gov.vn/2014/09/invoicexml/v1">
+      <inv:invoiceData id="Data">
+        <inv:invoiceAppRecordId>201105162815498WJ276</inv:invoiceAppRecordId>
+        <inv:invoiceType>02GTTT</inv:invoiceType>
+        <inv:templateCode>02GTTT0/001</inv:templateCode>
+        <inv:invoiceSeries>DL/16E</inv:invoiceSeries>
+        <inv:invoiceNumber>0531963</inv:invoiceNumber>
+        <inv:invoiceName>Hóa đơn bán hàng</inv:invoiceName>
+        <inv:invoiceIssuedDate>2020-11-05T00:00:00</inv:invoiceIssuedDate>
+        <inv:signedDate>2020-11-05T16:28:18.7069334+07:00</inv:signedDate>
+        <inv:submittedDate>2020-11-05T16:28:18.7069334+07:00</inv:submittedDate>
+        <inv:currencyCode>VND</inv:currencyCode>
+        <inv:adjustmentType>1</inv:adjustmentType>
+        <inv:payments>
+          <inv:payment>
+            <inv:paymentMethodName>TM</inv:paymentMethodName>
+          </inv:payment>
+        </inv:payments>
+        <inv:delivery />
+        <inv:sellerLegalName>Bệnh Viện Da Liễu Trung Ương</inv:sellerLegalName>
+        <inv:sellerTaxCode>0100775988</inv:sellerTaxCode>
+        <inv:sellerAddressLine>15A  Phương Mai, Quận Đống Đa, Thành phố Hà Nội</inv:sellerAddressLine>
+        <inv:sellerDistrictName>10109</inv:sellerDistrictName>
+        <inv:sellerCountryCode>VN</inv:sellerCountryCode>
+        <inv:sellerPhoneNumber>043 576 4626</inv:sellerPhoneNumber>
+        <inv:sellerFaxNumber />
+        <inv:sellerEmail>Benhviendalieutrunguong@dalieu.vn</inv:sellerEmail>
+        <inv:sellerBankName>Ngân hàng công thương chi nhánh Hoàng Mai</inv:sellerBankName>
+        <inv:sellerBankAccount>102010001733764</inv:sellerBankAccount>
+        <inv:sellerSubmittedPersonName />
+        <inv:buyerDisplayName>TRẦN THÙY LINH</inv:buyerDisplayName>
+        <inv:buyerLegalName>Viettinbank Chi Nhánh Nam Thăng Long </inv:buyerLegalName>
+        <inv:buyerTaxCode />
+        <inv:buyerAddressLine>117A Hoàng Quốc Việt Cầu Giấy Hà Nội </inv:buyerAddressLine>
+        <inv:buyerEmail />
+        <inv:buyerBankName />
+        <inv:buyerBankAccount />
+        <inv:items>
+          <inv:item>
+            <inv:lineNumber>1</inv:lineNumber>
+            <inv:itemCode>CON001</inv:itemCode>
+            <inv:itemName>Khám Da liễu</inv:itemName>
+            <inv:unitCode>Lần</inv:unitCode>
+            <inv:unitName>Lần</inv:unitName>
+            <inv:quantity>1</inv:quantity>
+            <inv:note />
+            <inv:itemTotalAmountWithoutVat>200000</inv:itemTotalAmountWithoutVat>
+            <inv:vatPercentage>0</inv:vatPercentage>
+            <inv:vatAmount>0</inv:vatAmount>
+            <inv:unitPrice>200000</inv:unitPrice>
+            <inv:promotion>0</inv:promotion>
+          </inv:item>
+        </inv:items>
+        <inv:invoiceTaxBreakdowns>
+          <inv:invoiceTaxBreakdown>
+            <inv:vatPercentage>0</inv:vatPercentage>
+            <inv:vatTaxableAmount>200000</inv:vatTaxableAmount>
+            <inv:vatExemptionReason />
+            <inv:vatTaxAmount>0</inv:vatTaxAmount>
+          </inv:invoiceTaxBreakdown>
+        </inv:invoiceTaxBreakdowns>
+        <inv:sumOfTotalLineAmountWithoutVAT>200000</inv:sumOfTotalLineAmountWithoutVAT>
+        <inv:totalAmountWithoutVAT>200000</inv:totalAmountWithoutVAT>
+        <inv:totalVATAmount>0</inv:totalVATAmount>
+        <inv:totalAmountWithVAT>200000</inv:totalAmountWithVAT>
+        <inv:totalAmountWithVATInWords>Hai trăm nghìn đồng.</inv:totalAmountWithVATInWords>
+        <inv:discountAmount>0</inv:discountAmount>
+        <inv:isDiscountAmtPos>false</inv:isDiscountAmtPos>
+        <inv:userDefines><![CDATA[<inv:Logo>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</inv:Logo><inv:Background></inv:Background><inv:Version>100</inv:Version><inv:HoaDonThayThe></inv:HoaDonThayThe><inv:Barcode>LHD_TS24HAIBONBarcode</inv:Barcode><inv:LoaiHDView>0</inv:LoaiHDView><inv:MauIn>02GTTT_1</inv:MauIn><inv:MaNhanHoaDon>201105162815498WJ276</inv:MaNhanHoaDon><inv:TyLeVAT>0</inv:TyLeVAT><inv:MucBaoHiemTra>0</inv:MucBaoHiemTra><inv:TyLeBaoHiem>0</inv:TyLeBaoHiem><inv:BaoHiemTra>0</inv:BaoHiemTra><inv:BenhNhanTra>200000</inv:BenhNhanTra><inv:TongTienMienGiam>0</inv:TongTienMienGiam>]]></inv:userDefines>
+      </inv:invoiceData>
+      <inv:controlData>
+        <inv:systemCode>LHD_DDHRBNKHIA</inv:systemCode>
+        <inv:taxOfficeCode>10100</inv:taxOfficeCode>
+      </inv:controlData>
+      <Signature Id="seller" xmlns="http://www.w3.org/2000/09/xmldsig#">
+        <SignedInfo>
+          <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+          <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+          <Reference URI="#Data">
+            <Transforms>
+              <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+            </Transforms>
+            <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+            <DigestValue>728+/cF03tH1s1cEWHplpZHtj90=</DigestValue>
+          </Reference>
+        </SignedInfo>
+        <SignatureValue>jvVJrOaVyvc8QcWL+m4cslb7bQcHsPruL/LmgD3ZExjnJf+9xyCxNEn3rgRWG97zZcrw2CoMxQeJ1H0QlkLsqIri2TLiVVk9VcSPbT2xv5U8smAEfUjSQaFtxA7qONxDfRn8LOQEhJ8ZG0deXOnttC3zEQFLthrqEKCjYYlkhdk=</SignatureValue>
+        <KeyInfo>
+          <X509Data>
+            <X509SubjectName>C=VN, L="15A Phương Mai, Quận Đống Đa, Thành phố Hà Nội", O=MST:0100775988, CN=BỆNH VIỆN DA LIỄU TRUNG ƯƠNG, E=ngachung2312@gmail.com</X509SubjectName>
+            <X509Certificate>MIIE0zCCA7ugAwIBAgIQVAEBCFxid5IRVBCYag0wKzANBgkqhkiG9w0BAQUFADBXMQswCQYDVQQGEwJWTjEkMCIGA1UEChMbU0FGRS1DQSBKb2ludCBTdG9jayBDb21wYW55MRAwDgYDVQQLEwdTQUZFLUNBMRAwDgYDVQQDEwdTQUZFLUNBMB4XDTE5MDgxNDA5MjkwMFoXDTIyMDkyMjAxMzUxNlowgcMxJTAjBgkqhkiG9w0BCQEWFm5nYWNodW5nMjMxMkBnbWFpbC5jb20xLTArBgNVBAMMJELhu4ZOSCBWSeG7hk4gREEgTEnhu4RVIFRSVU5HIMavxqBORzEXMBUGA1UECgwOTVNUOjAxMDA3NzU5ODgxRTBDBgNVBAcMPDE1QSBQaMawxqFuZyBNYWksIFF14bqtbiDEkOG7kW5nIMSQYSwgVGjDoG5oIHBo4buRIEjDoCBO4buZaTELMAkGA1UEBhMCVk4wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMsDCgxMDgPYZB9TQGsTZyuI5MgRJuD88wnMwVVU5t2jVYGH2yBPj9BbziYglD157eXx0MigI+wdj7DdYFGOzEAg6SsmoaSKEpmnNb7i5HuVsfuh3SGBCVo3G3GsKQvHk75etfOPFDgealLExCAMWiff6bJklYukUF7ogt36i+TvAgMBAAGjggGwMIIBrDCBtQYIKwYBBQUHAQEEgagwgaUwNwYIKwYBBQUHMAKGK2h0dHA6Ly9wdWJsaWMucm9vdGNhLmdvdi52bi9jcnQvbWljbnJjYS5jcnQwQAYIKwYBBQUHMAKGNGh0dHA6Ly93d3cuc2FmZWNlcnQuY29tLnZuL3d3dy9jZXJ0L1NBRkUtQ0EtMjAxNy5jZXIwKAYIKwYBBQUHMAGGHGh0dHA6Ly9vY3NwMS5zYWZlY2VydC5jb20udm4wHQYDVR0OBBYEFDH3r26GnturIGwsaz3OXG6YbIHoMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAU9A0UeMBITNk62psaTV+Odws2i+QwRwYDVR0gBEAwPjA8BghghUADAQIDBDAwMC4GCCsGAQUFBwIBFiJodHRwOi8vd3d3LnNhZmVjZXJ0LmNvbS52bi93d3cvcnBhMCwGA1UdHwQlMCMwIaAfoB2GG2h0dHA6Ly9jcmwxLnNhZmVjZXJ0LmNvbS52bjAOBgNVHQ8BAf8EBAMCBPAwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMEMA0GCSqGSIb3DQEBBQUAA4IBAQA5ibQ8JFM7jY2+pgv9FjMyP0Ea2LEBH+zul1JfZQS0ixuKlsJXQBx50dwPNP5Pc4y0pZ5ItvW+bF4y/Z5EvHJhOtWdwCW6rY7zgPQO2JtZSFYv8Rc/UvOFlwJCnz3NkuI/irbl9troTi0RONWirFZyKiuhRlfAI2F8k5Cyy4yHsPnXJN+7I/Q9TahQcCS1GqzbP4j05h+7weKMEpzanVZCkd+n3Dd/Xzm3r13qP8OZAdAbYRN83yCxWCjsf2eFogNuytjWobKuQc/WsLfc0w1ZgITwW/v5ZMW/CyTm93zzKMCHsl/oHru+O/jubdxC6HNfngnVGNZexetYCAXZ4mJw</X509Certificate>
+          </X509Data>
+        </KeyInfo>
+      </Signature>
+    </inv:invoice>
+  </inv:invoices>
+</inv:transaction>

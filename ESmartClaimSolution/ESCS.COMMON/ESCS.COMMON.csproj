@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Caches\interfaces\ICacheClient.cs" />
+    <Compile Remove="Caches\interfaces\ISerializer.cs" />
+    <Compile Remove="Caches\interfaces\JilSerializer.cs" />
+    <Compile Remove="Caches\interfaces\LinqExtensions.cs" />
+    <Compile Remove="Caches\interfaces\NewtonsoftSerializer.cs" />
+    <Compile Remove="Caches\interfaces\RedisCacheClient.cs" />
+    <Compile Remove="Caches\interfaces\RedisConnection.cs" />
+    <Compile Remove="SignaturePDF\Cert.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.95.3" />
+    <PackageReference Include="DocumentFormat.OpenXml.DotNet.Core" Version="1.0.1" />
+    <PackageReference Include="F23.StringSimilarity" Version="5.0.0" />
+    <PackageReference Include="FreeSpire.Doc" Version="7.11.0" />
+    <PackageReference Include="itext7" Version="7.1.13" />
+    <PackageReference Include="Jil" Version="2.17.0" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.6" />
+    <PackageReference Include="mongocsharpdriver" Version="2.11.0" />
+    <PackageReference Include="MongoDB.Driver" Version="2.11.0" />
+    <PackageReference Include="Nancy" Version="2.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.80" />
+    <PackageReference Include="QRCoder" Version="1.4.1" />
+    <PackageReference Include="RazorEngine.NetCore" Version="3.1.0" />
+    <PackageReference Include="ServiceStack.Redis" Version="5.9.2" />
+    <PackageReference Include="StackExchange.Redis" Version="2.1.58" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+    <PackageReference Include="System.Runtime.Caching" Version="4.7.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="5.0.0" />
+    <PackageReference Include="TestaCache.NetCore" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Notify\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v19.1">
+      <HintPath>..\ESCS.API\Libs\DevExpress.Data.v19.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v19.1.Core">
+      <HintPath>..\ESCS.API\Libs\DevExpress.Office.v19.1.Core.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v19.1.Core">
+      <HintPath>..\ESCS.API\Libs\DevExpress.Pdf.v19.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v19.1.Core">
+      <HintPath>..\ESCS.API\Libs\DevExpress.Printing.v19.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v19.1.Core">
+      <HintPath>..\ESCS.API\Libs\DevExpress.RichEdit.v19.1.Core.dll</HintPath>
+      <Private>true</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v19.1">
+      <HintPath>..\ESCS.API\Libs\DevExpress.XtraRichEdit.v19.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>..\ESCS.API\Libs\system.windows.forms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

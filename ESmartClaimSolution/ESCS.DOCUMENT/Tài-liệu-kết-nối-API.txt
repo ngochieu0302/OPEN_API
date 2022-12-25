@@ -1,0 +1,239 @@
+Tài li?u k?t n?i API
+Thông tin chung:
+Base Url: http://cloudapi.escs.vn/
+ePartnerCode: ESCS_MOBILE
+eEnvirontment: DEV - Khi tri?n khai th?t có th? thay d?i
+Secret Key: 568c85c6c8c5e64ee71b098028a4d7a7
+Trong dó:
+Header: 
+{
+  "alg": "HS256",
+  "typ": "JWT",
+  "cty": "escs-api;v=1",
+  "cat": "public",
+  "partner": "ESCS_MOBILE",
+  "user" : "escs_mobile",
+  "envcode": "DEV"
+}
+
+Payload: Json data_info  trong Body
+1. Api dang nh?p
+Url: api/esmartclaim/partner/login
+Method: Post
+Header:
+	+ ePartnerCode - <H? th?ng cung c?p>
+	+ eAction  -  40JHCH02I9S139W
+	+ eSignature: S? d?ng JWT d? ký d? li?u  Link: https://jwt.io/
+Signature = Base64UrlEncode(header). Base64UrlEncode(payload).HMACSHA256(Base64UrlEncode(header). Base64UrlEncode(payload), Secret_Key);
+Body:
+{
+  "define_info": {
+    "accept": "*/*",
+    "accept_encoding": "gzip, deflate",
+    "host": "escs-moblie-api",
+    "referer": "<<Màn hình dang call api>>",
+    "user_agent": "<<Thông tin trình duy?t>>",
+    "origin": "escs-mobile-api",
+    "ip_remote_ipv4": "<< Ip ho?c id device >>",
+    "ip_remote_ipv6": "<< Ip ho?c id device >>",
+    "time": <<Th?i gian call api format theo d?nh d?ng yyyyMMddHHmmss>>
+  },
+  "data_info": {
+    "nsd": "tài kho?n email",
+    "pas": "m?t kh?u dã du?c mã hóa SHA256"
+  }
+}
+
+K?t qu?:
+{
+    "state_info": {
+        "status": "OK",
+        "message_code": null,
+        "message_body": null,
+        "signature": null,
+        "errors": null
+    },
+    "data_info": {
+        "nguoi_dung": {
+            "ma_doi_tac": "CTYBHABC",
+            "ma_chi_nhanh": "000",
+            "phong": "KD01",
+            "nsd": "admin@escs.vn",
+            "pas": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+            "ten": "Qu?n tr? h? th?ng",
+            "ngay_sinh": "09/11/1993",
+            "dthoai": "0972878870",
+            "email": "xuanthanha2@gmail.com",
+            "ngay_hl": 20200101.0,
+            "ngay_kt": 20300101.0
+        },
+        "phan_quyen": [
+            {
+                "ma": "admin@escs.vn",
+                "nhom_chuc_nang": "BLVP",
+                "nhap": "1",
+                "xem": "1"
+            }
+        ],
+        "dvi_phan_quyen": [
+            {
+                "ma_doi_tac_ql": "CTYBHABC",
+                "ma_chi_nhanh_ql": "000"
+            }
+        ],
+        "menu": [
+            {
+                "ma_doi_tac": "CTYBHABC",
+                "so_id": 9.0,
+                "ten": "B?i thu?ng s?c kh?e",
+                "so_id_cha": 0.0,
+                "stt": 4.0,
+                "url": null,
+                "nhom_quyen": "BLVP,TNCN,BTCN,QTHT",
+                "icon": "mdi mdi-heart-pulse",
+                "hien_thi": 1,
+                "nhom": "CLIENT"
+            }
+        ],
+        "thong_bao": [
+            {
+                "gid": "QpE+XvGATimlA5cT8q++Ig==",
+                "ma_doi_tac": "CTYBHABC",
+                "ten_doi_tac": "Công ty b?o hi?m ABC",
+                "nsd": "admin@escs.vn",
+                "ten_nsd": "Qu?n tr? h? th?ng",
+                "tieu_de": "Thông báo",
+                "nd": "H? th?ng g?i thông báo realtime dã hoàn thành",
+                "nd_tom_tat": "H? th?ng g?i thông báo realtime dã hoàn thành",
+                "tg_thong_bao": 20201102224841,
+                "loai_thong_bao": "NOTIFY",
+                "tg_thong_bao_hthi": "22:48 02/11/2020",
+                "loai_thong_bao_hthi": "G?i thông báo",
+                "nguoi_gui": "HE_THONG",
+                "doc_noi_dung": 0,
+                "doc_noi_dung_hthi": "Chua d?c",
+                "canh_bao": "INFO",
+                "canh_bao_hthi": "Thông tin",
+                "tt_gui": 1,
+                "tt_gui_hthi": "Ðã g?i",
+                "so_tn_chua_doc": 19,
+                "r__": 1.0
+            }
+        ],
+        "authentication": {
+            "access_token": "eyJ0eXAiOiJKV1QiICwiYWxnIjoiSFMyNTYiICwiY3R5IjoiZXNjcy1tb2JsaWUtYXBpO3Y9MSIgfQ.eyJwYXJ0bmVyX2NvZGUiOiJFU0NTX01PQklMRSIsImV2bmNvZGUiOiJERVYiLCJ1c2VybmFtZSI6ImVzY3NfbW9iaWxlIiwicGFzc3dvcmQiOiI4NTU3ZDNlNDU5NDQ0YTA0YTkyMzQ2MmY5NTNkMThiZDFjMzU5ZTdiOWI5YzllNDc4YzY2ZWM0NWY2MWQ0Yjg3IiwidGltZV9leHByaXZlIjoyMDIwMTEwMzEzNTgwNywidGltZV9iZWdpbl9zZXNzaW9uIjoyMDIwMTEwMzEzNDgwNywidHlwZSI6ImFjY2Vzc190b2tlbiJ9.1ulNSAXkKQhMpJ197keA+qEvfTaWEUbbS7JtW6Yb6SE=",
+            "refesh_token": "eyJ0eXAiOiJKV1QiICwiYWxnIjoiSFMyNTYiICwiY3R5IjoiZXNjcy1tb2JsaWUtYXBpO3Y9MSIgfQ.eyJwYXJ0bmVyX2NvZGUiOiJFU0NTX01PQklMRSIsImFjY2Vzc190b2tlbiI6ImV5SjBlWEFpT2lKS1YxUWlJQ3dpWVd4bklqb2lTRk15TlRZaUlDd2lZM1I1SWpvaVpYTmpjeTF0YjJKc2FXVXRZWEJwTzNZOU1TSWdmUS5leUp3WVhKMGJtVnlYMk52WkdVaU9pSkZVME5UWDAxUFFrbE1SU0lzSW1WMmJtTnZaR1VpT2lKRVJWWWlMQ0oxYzJWeWJtRnRaU0k2SW1WelkzTmZiVzlpYVd4bElpd2ljR0Z6YzNkdmNtUWlPaUk0TlRVM1pETmxORFU1TkRRMFlUQTBZVGt5TXpRMk1tWTVOVE5rTVRoaVpERmpNelU1WlRkaU9XSTVZemxsTkRjNFl6WTJaV00wTldZMk1XUTBZamczSWl3aWRHbHRaVjlsZUhCeWFYWmxJam95TURJd01URXdNekV6TlRnd055d2lkR2x0WlY5aVpXZHBibDl6WlhOemFXOXVJam95TURJd01URXdNekV6TkRnd055d2lkSGx3WlNJNkltRmpZMlZ6YzE5MGIydGxiaUo5LjF1bE5TQVhrS1FoTXBKMTk3a2VBK3FFdmZUYVdFVWJiUzdKdFc2WWI2U0U9IiwidGltZV9leHByaXZlIjoyMDIwMTEwMzE0MTgwNywidG9rZW5fdHlwZSI6ImVBdXRoVG9rZW4iLCJzaWduYXR1cmUiOm51bGx9.wzkFg2J3KUQB98LC6c9HtiBK3RQs9FBYHuZEKPKavXk=",
+            "environment": "DEV",
+            "time_exprive": 20201103135807,
+            "time_connect": 20201103134807,
+            "token_type": "eAuthToken"
+        }
+    },
+    "out_value": {}
+}
+
+2. Api Refresh Token
+Url: api/esmartclaim/refresh-token
+Method: Post
+Header:
+	+ ePartnerCode - <H? th?ng cung c?p>
+Body:
+{
+    "access_token": "eyJ0eXAiOiJKV1QiICwiYWxnIjoiSFMyNTYiICwiY3R5IjoiZXNjcy1tb2JsaWUtYXBpO3Y9MSIgfQ.OERTWTFZMlNvdmV4OVJIVWJzM2toaU8wM3Q4Wndrb0s2WWRSMGprMEZyMEw3RGVtbndkQTR3bStRWWFYRzFOYnhaSWZ3bGhzM3psWCtwZjR2M2kvdE1hdFd1WTZtK3NLd1dOL0xYMlhWeCtadEJsK3k0VVZmYi8xKzdQblEvc2VvclhQeUxWZXorTlAwUkVTL2FVRXAwd0MrZDE2cHdudlQyQ0VxMEdtL0JGN2hrSEJxdVNsN2VXYjcxbWNkblBBZ2REcm9weFBhZ0lvdHRGUDgxaGlSWUlXL3BFdFdycHVEV3pXbGxNNUlzNUphUWtoWXBuQnhIVjNwdkZJMHVSWG04OWJRU05LY3JMMlBSK3pUMXoxR1BFZmI0dkFUdDIxQVRwZG9PYkM3b2t5aFJmWnNic2RnQjExeFMyS3IyMWE.+fVDUy5Y8WYF8nZkZWwr2qJNPqEhsJbA0vRJJ7IL9P4=",
+        "refesh_token": "eyJ0eXAiOiJKV1QiICwiYWxnIjoiSFMyNTYiICwiY3R5IjoiZXNjcy1tb2JsaWUtYXBpO3Y9MSIgfQ.OERTWTFZMlNvdmV4OVJIVWJzM2toaU8wM3Q4Wndrb0tQNDNXenhrSjYva3loUmZac2JzZGdJUkpQUkh4WEl6MnRhVm9FOU1VSUJ1ZEVVRG1HV21qZzAvKzZ6dThuRDlMRTdnK0djZXdYcytQTzRxOXZpTC9pUDB2Z0NPc0ZrcFpKV21JZlNmcW5jalNXblVpNUNZdEtPcmNEM2sxdlBQM2lrb1VSNzkwTXBnb2JaZEJPOVNQZEh1ajZtTXdkelpibzhzTHBUMmd2ajBsWHNEY3pVTmYvUEFNOFJqN0dwUGN4dzhUNENsb2JzSkYyYXJVMi9YQzBTUzRFbTd2ZExmK0tnQmx2TUJhMHhsUnhQNFAxUVpDOEhSSzZnVmY3cG91NTZnNjNvVEhkSmlkdERQSEQ5VjZURkR5ZVBUZW9JRjZ2Zll5dWpvbFNHUXdvZzh3a0dEWEVvOXBGUkxiMm1vZHJpalhraE1CY2VtUWl4dTJKQmpnRmg3b3ZnNk55cGRSUGdOWktWdWtGMnpJMUx2UUVpUEc1MVdCOTRSdEhtNjBTeDlvbUtveUZMbGpucmFUc2dWOURPbE9PcGFkYVRmQmwzWmpvUnNybUxFQkJtTnc1UzRPQXJXUW9qRDQ5aEt5OWlJL2lBQUlJUEJWdUZaR2srd1UrQ3I5UFpqWVVISWRnWDBIeklLcnlCTVV3YWhPblVxd0VhdWdmWmdvaXMxbERLTytlalQzdW93alZhNE1Vc2J3K0xtVXRYTFE3WmlQMXg2RHlqWlo2TlZkOHJPdUdTSnRKZDdaK051QmFzdGRCb0t6UlVQOHN1aFNoeWpUaTlyR1dLZlhBcVZNS1AzQnh0VHZzY0pVZkpPbEhzR2tRRmt5cWVvNDlGSi9kcVRmSUwrMTU3OHdTTndRSXNUK1U4bFpvcm91TzNrTzlVakdIb04vc3NNcnIwdGNLUXBHU0hPTlVyMTN0WWZFd0RFVTNBYld2UTRFNU03L0E4eUhPMDVWRDl1WVVvSXFQMmNYSVlJblIrZ3VOd1I5dHdNUUlld01YOFhPMXB6R0JEUEwwbzNUK09HMzFhdUk3dExwemFTVEUrOUZNSWhRbW1KdkZ2SWhoNzd2bVloemdOSmhVb2tHcWZKSURtcjErSy9CSkVlY2g3OWxpendDRkgrTnVmRDZTTnNMUlg0RG5uSWIxeEd0Y1ozWVliZz0.4Trx5STZyKrnmMZSK7wV8A7vqJvnaH25ooXN+CxxiIc=",
+    "token_type":"access_token"
+}
+K?t qu?
+{
+    "state_info": {
+        "status": "OK",
+        "message_code": "ESCS00",
+        "message_body": "C?p token m?i thành công.",
+        "signature": null,
+        "errors": null
+    },
+    "data_info": {
+        "access_token": "eyJ0eXAiOiJKV1QiICwiYWxnIjoiSFMyNTYiICwiY3R5IjoiZXNjcy1tb2JsaWUtYXBpO3Y9MSIgfQ.OERTWTFZMlNvdmV4OVJIVWJzM2toaU8wM3Q4Wndrb0s2WWRSMGprMEZyMEw3RGVtbndkQTR3bStRWWFYRzFOYnhaSWZ3bGhzM3psWCtwZjR2M2kvdE1hdFd1WTZtK3NLd1dOL0xYMlhWeCtadEJsK3k0VVZmYi8xKzdQblEvc2VvclhQeUxWZXorTlAwUkVTL2FVRXAwd0MrZDE2cHdudlQyQ0VxMEdtL0JGN2hrSEJxdVNsN2VXYjcxbWNkblBBZ2REcm9weFBhZ0lvdHRGUDgxaGlSWUlXL3BFdFdycHVGWC9IU2R6RkJvYmVvYkQvdVprUHozVjNwdkZJMHVSWG04OWJRU05LY3JMMlBSK3pUMXoxR0ZBa2FrZ0ZMN3NOQVRwZG9PYkM3b2t5aFJmWnNic2RnQjExeFMyS3IyMWE.4l7/7Sj6RpHfeQCgs92R4aE+GIzMen/BzR7IRubT0Eg=",
+        "refesh_token": "eyJ0eXAiOiJKV1QiICwiYWxnIjoiSFMyNTYiICwiY3R5IjoiZXNjcy1tb2JsaWUtYXBpO3Y9MSIgfQ.OERTWTFZMlNvdmV4OVJIVWJzM2toaU8wM3Q4Wndrb0tQNDNXenhrSjYva3loUmZac2JzZGdJUkpQUkh4WEl6MnRhVm9FOU1VSUJ1ZEVVRG1HV21qZzAvKzZ6dThuRDlMRTdnK0djZXdYcytQTzRxOXZpTC9pUDB2Z0NPc0ZrcFpKV21JZlNmcW5jalNXblVpNUNZdEtPcmNEM2sxdlBQM2lrb1VSNzkwTXBnb2JaZEJPOVNQZEh1ajZtTXdkelpibzhzTHBUMmd2ajBsWHNEY3pVTmYvUEFNOFJqN0dwUGN4dzhUNENsb2JzSkYyYXJVMi9YQzBTUzRFbTd2ZExmK0tnQmx2TUJhMHhsUnhQNFAxUVpDOEhSSzZnVmY3cG91NTZnNjNvVEhkSmlkdERQSEQ5VjZURkR5ZVBUZW9JRjZ2Zll5dWpvbFNHUXdvZzh3a0dEWEVvOXBGUkxiMm1vZHJpalhraE1CY2VtUWl4dTJKQmpnRmg3b3ZnNk55cGRSUGdOWktWdWtGMnpJMUx2UUVpUEc1MVdCOTRSdEhtNjBTeDlvbUtveUZMbGpucmFUc2dWOURPbE9PcGFkYVRmQmwzWmpvUnNybUxFQkJtTnc1UzRPQXJXUW9qRDQ5aEt5OWlJL2lBQUlJUEJWdUZaR2srd1UrQ3I5UFpqWVVISWRnWDBIeklLcnlCTVV3YWhPblVxd0VhdWdmWmdvaXMxbERLTytlalQzdW93alZhNE1Vc2J3K09oVXNDY3JEcXhkUGI2ejM4Vy9YMVczbU8wQTA1KzdmM1pqUWtycm9XSFpCb0t6UlVQOHN1aFNoeWpUaTlyR1dLZlhBcVZNS1AzQnh0VHZzY0pVZkpNcXcwOW5HeDBuc29xMjVnNTF2UXVpenJBeEd3b2RHcjhRSXNUK1U4bFpvcm91TzNrTzlVakdIb04vc3NNcnIwdGNLUXBHU0hPTlVyMTN0WWZFd0RFVXlFYW5VcmY2T2FueXVTTXI3VGdOcW5ZelE4QWpwM25qR3F2NGVuMGpIS2hUUFVGYzd4SmZwSGw3S3FaelRnUncwbzNUK09HMzFhdUk3dExwemFTVEUxdTdLamEwYms3V2NzSWNma2JUU05semdOSmhVb2tHcWZKSURtcjErSy9CSkVlY2g3OWxpendDRkgrTnVmRDZTTnNMUlg0RG5uSWIxeEd0Y1ozWVliZz0.ApUbLG0Fgy5jd1XKcnWTHNWNxivMTY+9ufeE2UbWKjU=",
+        "environment": "DEV",
+        "time_exprive": 20201103183930,
+        "time_connect": null,
+        "token_type": "eAuthToken"
+    },
+    "out_value": null
+}
+3. Các api th?c thi
+Url: api/esmartclaim/excute
+Method: Post
+Header:
+	+ ePartnerCode - <H? th?ng cung c?p>
+	+ eAction  -  <action api do h? th?ng api cung c?p>
+	+ eAuthToken  -  <access_token>
+	+ eSignature: Cú pháp bên du?i
+      Signature = (Base64UrlEncode(data_info).Secret_Key);
+Body:
+{
+  "define_info": {
+    "accept": "*/*",
+    "accept_encoding": "gzip, deflate",
+    "host": "demo.escs.vn",
+    "referer": "http://demo.escs.vn/carclaim/carcompensation",
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/86.0.4240.111 Safari/537.36",
+    "origin": "http://demo.escs.vn",
+    "ip_remote_ipv4": "Ip ho?c id device",
+    "ip_remote_ipv6": Ip ho?c id device ",
+    "time": 20201031120047
+  },
+  "data_info": <<là object json truy?n lên>>
+}
+      K?t qu?
+{
+    "state_info": {
+        "status": "OK|NotOk",
+        "message_code": null,
+        "message_body": null,
+        "signature": null,
+        "errors": null
+    },
+    "data_info": <<D? li?u tr? v?>>,
+    "out_value": <<D? li?u dính kèm tr? v?>>
+}
+
+Luu ý:
+Trong data_info: {}
+Lúc nào cung ph?i có 4 thu?c tính:
+{
+	ma_doi_tac_nsd: <<Mã d?i tác ngu?i dùng>>,
+	ma_chi_nhanh_nsd: <<Mã chi nhánh ngu?i dùng>>,
+	nsd: <<Mã ngu?i s? d?ng (email)>>,
+	pas: <<M?t kh?u dã du?c mã hóa SHA256>>
+}
+
+Api Login Example
+URL:/api/esmartclaim/partner/login
+Header:
++ ePartnerCode: ESCS_MOBILE
++ eAction : PY8AHDD1UZA71X0
++ eSignature: jwt
+Body
+{
+  "define_info": {
+    "accept": "*/*",
+    "accept_encoding": "gzip, deflate",
+    "host": "com.escs.webapi",
+    "referer": "com.escs.webapi",
+    "user_agent": "ESCS Mobile - Android/1.0",
+    "origin": "domain",
+    "ip_remote_ipv4": "ip_local",
+    "ip_remote_ipv6": "ip_public",
+    "time": "time_format_yyyymmddhhmmss"
+  },
+  "data_info": {
+	"nsd":"admin@escs.vn",
+	"pas":"2b22d5881c83c15f4f7194c527100e59f1ffb41c8daf1af9040574f93a34d26d"
+  }
+}
+
+
+
+

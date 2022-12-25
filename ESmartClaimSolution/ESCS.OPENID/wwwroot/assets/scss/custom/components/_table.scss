@@ -1,0 +1,9 @@
+.table {
+    margin-bottom: $table-margin-bottom;
+}
+
+.table thead th,
+.table tfoot th,
+.table th {
+    font-weight: $font-weight-bold;
+}

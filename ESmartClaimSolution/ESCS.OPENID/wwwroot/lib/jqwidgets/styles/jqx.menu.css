@@ -1,0 +1,12 @@
+﻿.jqx-widget-content-menu{border-color: white;background-color: #e0e9f5;}
+.jqx-fill-state-normal-menu, .jqx-widget-header-menu{border-color:#e0e9f5; background-color:#e0e9f5; font-weight:bold;}
+.jqx-fill-state-hover-menu{border-color:#5e8cb3;  background-color:white}
+.jqx-fill-state-pressed-menu{border-color:#5e8cb3; background-color:white}
+.jqx-fill-state-focus-menu { border-color: #e0e9f5; background-color:#e0e9f5}
+.jqx-scrollbar-state-normal-menu, .jqx-grid-bottomright-menu, .jqx-panel-bottomright-menu, .jqx-listbox-bottomright-menu{background-color:#e0e9f5}
+.jqx-widget-menu .jqx-grid-column-header-menu, .jqx-grid-cell-menu, .jqx-widget-menu .jqx-grid-cell-menu, .jqx-widget-menu .jqx-grid-group-cell-menu, .jqx-grid-group-cell-menu{border-color:none;background-color:#e0e9f5}
+.jqx-tabs-title-selected-bottom-menu, .jqx-tabs-selection-tracker-bottom-menu, .jqx-tabs-title-selected-top-menu, .jqx-tabs-selection-tracker-top-menu{border-color:none; border-bottom:1px none none; background:#e0e9f5}
+.jqx-grid-cell-sort-alt-menu, .jqx-grid-cell-filter-alt-menu, .jqx-grid-cell-pinned-menu, .jqx-grid-cell-alt-menu, .jqx-grid-cell-sort-menu{ background-color:#e0e9f5}
+.jqx-grid-cell-selected-menu{ background-color:#e0e9f5 !important;  color:#2b465e !important;}
+.jqx-grid-cell-hover-menu{ background-color:#e0e9f5 !important;}
+.jqx-menu-vertical-menu{background-color: #e0e9f5;}

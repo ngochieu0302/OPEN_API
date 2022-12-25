@@ -1,0 +1,175 @@
+﻿<header class="topbar">
+    <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+        <div class="navbar-header">
+            <a href="javascript:void(0)" class="nav-toggler waves-light d-block d-md-none">
+                <i class="ti-menu ti-close"></i>
+            </a>
+            <a class="navbar-brand" href="index.html">
+                <!-- Logo icon -->
+                <b class="logo-icon">
+                    <img src="~/assets/images/logo-light-icon.png" alt="homepage" class="light-logo" />
+                </b>
+                <!-- Logo text -->
+                <span class="logo-text">
+                    OPENID
+                </span>
+            </a>
+            <a class="topbartoggler d-block d-md-none waves-light" href="javascript:void(0)"
+               data-toggle="collapse" data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="ti-more"></i>
+            </a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto float-left">
+                <li class="nav-item">
+                    <a class="nav-link sidebartoggler d-none d-md-block waves-dark" href="javascript:void(0)">
+                        <i class="ti-menu"></i>
+                    </a>
+                </li>
+            </ul>
+            <ul class="navbar-nav float-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-dark" href="javascript:void(0)" id="btnShowNotify" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <i class="mdi mdi-message"></i>
+                        <div class="notify">
+                            <span id="app-notify-not-read"></span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right mailbox scale-up">
+                        <ul class="list-style-none">
+                            <li>
+                                <div class="border-bottom rounded-top py-3 px-4">
+                                    <h5 class="mb-0 font-weight-medium font-weight-bold">Thông báo</h5>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="message-center notifications position-relative scrollable" id="app_notify" style="height:250px;overflow: auto;">
+                                    
+                                </div>
+                            </li>
+                            <li>
+                                <a class="nav-link border-top text-center text-dark pt-3" href="javascript:void(0);"> <strong>Xem tất cả thông báo</strong> <i class="fa fa-angle-right"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-dark" href="" id="2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="mdi mdi-email"></i>
+                        <div class="notify">
+                            <span class="point"></span>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu mailbox dropdown-menu-right scale-up" aria-labelledby="2">
+                        <ul class="list-style-none">
+                            <li>
+                                <div class="border-bottom rounded-top py-3 px-4">
+                                    <h5 class="font-weight-medium mb-0">You have 4 new messages</h5>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="message-center message-body position-relative" style="height:250px;">
+                                    <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                        <span class="user-img position-relative d-inline-block"> <img src="~/assets/images/users/1.jpg" alt="user" class="rounded-circle w-100"> <span class="profile-status rounded-circle online"></span> </span>
+                                        <div class="w-75 d-inline-block v-middle pl-2">
+                                            <h5 class="message-title mb-0 mt-1">Pavan kumar</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">Just see the my admin!</span> <span class="font-12 text-nowrap d-block text-muted">9:30 AM</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                        <span class="user-img position-relative d-inline-block"> <img src="~/assets/images/users/2.jpg" alt="user" class="rounded-circle w-100"> <span class="profile-status rounded-circle busy"></span> </span>
+                                        <div class="w-75 d-inline-block v-middle pl-2">
+                                            <h5 class="message-title mb-0 mt-1">Sonu Nigam</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">I've sung a song! See you at</span> <span class="font-12 text-nowrap d-block text-muted">9:10 AM</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                        <span class="user-img position-relative d-inline-block"> <img src="~/assets/images/users/3.jpg" alt="user" class="rounded-circle w-100"> <span class="profile-status rounded-circle away"></span> </span>
+                                        <div class="w-75 d-inline-block v-middle pl-2">
+                                            <h5 class="message-title mb-0 mt-1">Arijit Sinh</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">I am a singer!</span> <span class="font-12 text-nowrap d-block text-muted">9:08 AM</span>
+                                        </div>
+                                    </a>
+                                    <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
+                                        <span class="user-img position-relative d-inline-block"> <img src="~/assets/images/users/4.jpg" alt="user" class="rounded-circle w-100"> <span class="profile-status rounded-circle offline"></span> </span>
+                                        <div class="w-75 d-inline-block v-middle pl-2">
+                                            <h5 class="message-title mb-0 mt-1">Pavan kumar</h5> <span class="font-12 text-nowrap d-block text-muted text-truncate">Just see the my admin!</span> <span class="font-12 text-nowrap d-block text-muted">9:02 AM</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <a class="nav-link border-top text-center text-dark pt-3" href="javascript:void(0);"> <b>See all e-Mails</b> <i class="fa fa-angle-right"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle waves-dark" href="" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user fa-lg profile-pic rounded-circle"></i>
+                    </a>
+                    <div class="dropdown-menu mailbox dropdown-menu-right scale-up">
+                        <ul class="dropdown-user list-style-none">
+                            <li>
+                                <div class="dw-user-box p-3 d-flex">
+                                    <div class="u-img"><img src="~/assets/images/users/1.jpg" alt="user" class="rounded" width="80"></div>
+                                    <div class="u-text ml-2">
+                                        <h4 class="mb-0">Admin</h4>
+                                        <a href="/user" class="btn btn-rounded btn-danger btn-sm text-white d-inline-block">Hồ sơ</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li role="separator" class="dropdown-divider"></li>
+                            <li class="user-list"><a class="px-3 py-2" href="/user"><i class="ti-user"></i> Hồ sơ</a></li>
+                            <li class="user-list"><a class="px-3 py-2" href="#"><i class="ti-email"></i> Hộp thư</a></li>
+                            <li role="separator" class="dropdown-divider"></li>
+                            <li class="user-list"><a class="px-3 py-2" href="#"><i class="ti-settings"></i> Cấu hình</a></li>
+                            <li role="separator" class="dropdown-divider"></li>
+                            <li class="user-list"><a class="px-3 py-2" href="/home/logout"><i class="fa fa-power-off"></i> Thoát</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<script type="text/html" id="app_notify_template">
+    <%if(data.length > 0){
+    _.forEach(data, function(el) {
+    if(el.doc_noi_dung===1){
+    %>
+    <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
+        <%if(el.canh_bao === 'INFO'){ %>
+        <span class="btn btn-success rounded-circle btn-circle"><i class="mdi mdi-facebook-messenger"></i></span>
+        <% } %>
+        <%if(el.canh_bao === 'WARNING'){ %>
+        <span class="btn btn-warning rounded-circle btn-circle"><i class="mdi mdi-bell-ring" style="color:#fff;"></i></span>
+        <% } %>
+        <%if(el.canh_bao === 'DANGER'){ %>
+        <span class="btn btn-danger rounded-circle btn-circle"><i class="mdi mdi-alert-octagram"></i></span>
+        <% } %>
+        <div class="w-75 d-inline-block v-middle pl-2">
+            <h5 class="message-title mb-0 mt-1"><%- el.tieu_de %></h5> <span class="font-12 text-nowrap d-block text-muted text-truncate"><%- el.nd_tom_tat %></span> <span class="font-12 text-nowrap d-block text-muted"><%- el.tg_thong_bao_hthi %></span>
+        </div>
+    </a>
+    <% }
+    else
+    {
+    %>
+    <a href="javascript:void(0)" class="message-item d-flex align-items-center border-bottom px-3 py-2">
+        <%if(el.canh_bao === 'INFO'){ %>
+        <span class="btn btn-success rounded-circle btn-circle"><i class="mdi mdi-facebook-messenger"></i></span>
+        <% } %>
+        <%if(el.canh_bao === 'WARNING'){ %>
+        <span class="btn btn-warning rounded-circle btn-circle"><i class="mdi mdi-bell-ring" style="color:#fff;"></i></span>
+        <% } %>
+        <%if(el.canh_bao === 'DANGER'){ %>
+        <span class="btn btn-danger rounded-circle btn-circle"><i class="mdi mdi-alert-octagram"></i></span>
+        <% } %>
+        <div class="w-75 d-inline-block v-middle pl-2">
+            <h5 class="message-title mb-0 mt-1 font-weight-bold"><%- el.tieu_de %></h5> <span class="font-12 text-nowrap d-block text-truncate font-weight-bold" style="color:black"><%- el.nd_tom_tat %></span> <span class="font-12 text-nowrap d-block font-weight-bold" style="color:black"><%- el.tg_thong_bao_hthi %></span>
+        </div>
+    </a>
+    <%
+    }}) } %>
+</script>

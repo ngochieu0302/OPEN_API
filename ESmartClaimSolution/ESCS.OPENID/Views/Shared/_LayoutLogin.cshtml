@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="ESCS">
+    <meta name="robots" content="noindex,nofollow">
+    <title>Đăng nhập - ESCS</title>
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="favicon.ico">
+    <link href="~/css/style.css" rel="stylesheet" />
+    <style>
+        .auth-wrapper {
+            position: relative;
+            min-height: 100vh;
+        }
+
+            .auth-wrapper #recoverform {
+                display: none;
+            }
+
+        .auth-box {
+            width: 20%;
+        }
+
+        input.form-control {
+            height: 32px;
+        }
+    </style>
+</head>
+<body>
+    @RenderBody()
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/popper.js/umd/popper.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script>
+        $('#to-recover').on("click", function () {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
+    </script>
+</body>
+</html>

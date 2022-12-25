@@ -1,0 +1,433 @@
+﻿@using ESCS.COMMON.ExtensionMethods
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <title>eSmart Claim Solution </title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/content/admin/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/content/admin/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/content/admin/css/smartadmin-production-plugins.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/content/admin/css/smartadmin-production.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/content/admin/css/smartadmin-skins.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/content/admin/css/smartadmin-rtl.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="~/content/admin/css/demo.min.css">
+    <link href="~/css/modal-left-right.css" rel="stylesheet" />
+    <link href="~/lib/simplePagination.js/simplePagination.css" rel="stylesheet" />
+    <link href="~/content/admin/bootstrap-datetimepicker.css" rel="stylesheet" />
+    <link href="~/content/admin/dist/themes/default/style.min.css" rel="stylesheet" />
+    <link href="~/content/admin/ag-grid.css" rel="stylesheet" />
+    <link href="~/content/admin/ag-theme-balham.css" rel="stylesheet" />
+    <link href="~/content/admin/toastr.min.css" rel="stylesheet" />
+    <link href="~/content/admin/PagedList.css" rel="stylesheet" />
+    <link href="~/content/admin/jsTree/themes/default/style.min.css" rel="stylesheet" />
+    <link href="~/content/admin/style.edu.css" rel="stylesheet" />
+    <link href="~/content/admin/style.common.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="~/content/escs_logo.png" type="image/x-icon">
+    <link rel="icon" href="~/content/escs_logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="~/content/admin/img/splash/sptouch-icon-iphone.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="~/content/admin/img/splash/touch-icon-ipad.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="~/content/admin/img/splash/touch-icon-iphone-retina.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="~/content/admin/img/splash/touch-icon-ipad-retina.png">
+</head>
+<body class="desktop-detected pace-done smart-style-2" style="background-color:#f2f2f2;">
+    <header id="header">
+        <div id="logo-group">
+            <span id="logo" style="margin: unset !important;">
+                <span style="font-weight:bold;color:#fff;">
+                    <img src="~/content/escs_logo.png" />
+                </span>
+            </span>
+        </div>
+        <div class="project-context hidden-xs">
+            <span class="label">Hướng dẫn sử dụng:</span>
+            <span class="project-selector dropdown-toggle" data-toggle="dropdown">Danh sách tài liệu <i class="fa fa-angle-down"></i></span>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="javascript:void(0);">Khai báo thông tin môi trường</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Khai báo và cấu hình thông tin server</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Khai báo và cấu hình thông tin cơ sở dữ liệu</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Khai báo và cấu hình thông tin đối tác</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Khai báo Action</a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);">Phân quyền Action cho đối tác</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="javascript:void(0);"><i class="fa fa-power-off"></i> Xóa</a>
+                </li>
+            </ul>
+        </div>
+        <div class="pull-right">
+            <div id="hide-menu" class="btn-header pull-right">
+                <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+            </div>
+            <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+                <li class="">
+                    <a href="#" class="dropdown-toggle no-margin userdropdown" data-toggle="dropdown">
+                        <img src="~/content/admin/img/avatars/sunny.png" alt="John Doe" class="online" />
+                    </a>
+                    <ul class="dropdown-menu pull-right">
+                        <li>
+                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-cog"></i> Cài đặt</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="/Admin/NguoiDung/ChangePassword" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-user"></i> Thay đổi mật khẩu</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="toggleShortcut"><i class="fa fa-arrow-down"></i> Thông tin cá nhân</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="javascript:void(0);" class="padding-10 padding-top-0 padding-bottom-0" data-action="launchFullscreen"><i class="fa fa-arrows-alt"></i> Full <u>S</u>creen</a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="login.html" class="padding-10 padding-top-5 padding-bottom-5" data-action="userLogout"><i class="fa fa-sign-out fa-lg"></i> <strong><u>L</u>ogout</strong></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+            <!-- logout button -->
+            <div id="logout" class="btn-header transparent pull-right">
+                <span> <a href="/help/dangxuat" title="Sign Out" data-action="userLogout" data-logout-msg="Bạn có chắc chắn muốn đăng xuất khỏi hệ thống không?"><i class="fa fa-sign-out"></i></a> </span>
+            </div>
+            <!-- end logout button -->
+            <!-- search mobile button (this is hidden till mobile view port) -->
+            <div id="search-mobile" class="btn-header transparent pull-right">
+                <span> <a href="javascript:void(0)" title="Search"><i class="fa fa-search"></i></a> </span>
+            </div>
+            <!-- end search mobile button -->
+            <!-- input: search field -->
+            <form action="search.html" class="header-search pull-right">
+                <input id="search-fld" type="text" name="param" placeholder="Tìm kiếm thông tin" data-autocomplete='[
+					"ActionScript",
+					"AppleScript",
+					"Asp",
+					"BASIC",
+					"C",
+					"C++",
+					"Clojure",
+					"COBOL",
+					"ColdFusion",
+					"Erlang",
+					"Fortran",
+					"Groovy",
+					"Haskell",
+					"Java",
+					"JavaScript",
+					"Lisp",
+					"Perl",
+					"PHP",
+					"Python",
+					"Ruby",
+					"Scala",
+					"Scheme"]'>
+                <button type="submit">
+                    <i class="fa fa-search"></i>
+                </button>
+                <a href="javascript:void(0);" id="cancel-search-js" title="Cancel Search"><i class="fa fa-times"></i></a>
+            </form>
+            <!-- end input: search field -->
+            <!-- fullscreen button -->
+            <div class="btnShowErrorSystem btn-header transparent pull-right">
+                <span> <a href="javascript:void(0);" title="Show error code"><i class="fa fa-bell"></i></a> </span>
+            </div>
+
+            <!-- fullscreen button -->
+            <div id="fullscreen" class="btn-header transparent pull-right">
+                <span> <a href="javascript:void(0);" data-action="launchFullscreen" title="Full Screen"><i class="fa fa-arrows-alt"></i></a> </span>
+            </div>
+            <!-- end fullscreen button -->
+        </div>
+        <!-- end pulled right: nav area -->
+    </header>
+    <aside id="left-panel">
+        <div class="login-info">
+            <span>
+                <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
+                    <img src="~/content/admin/img/avatars/sunny.png" alt="me" class="online" />
+                    <span>
+                        Admin
+                    </span>
+                    <i class="fa fa-angle-down"></i>
+                </a>
+
+            </span>
+        </div>
+        <nav>
+            <ul>
+                <li class="@MenuExtension.ActiveParent("dashboard",ViewBag.ID_MENU_CHA)">
+                    <a href="/" title="Dashboard"><i class="fa fa-lg fa-fw fa-tachometer"></i> <span class="menu-item-parent">Báo cáo tổng hợp</span></a>
+                </li>
+                <li class="top-menu-invisible @MenuExtension.ActiveParent("danhmuc",ViewBag.ID_MENU_CHA)">
+                    <a href="#"><i class="fa fa-lg fa-fw fa-list"></i> <span class="menu-item-parent">Quản lý danh mục</span></a>
+                    <ul>
+                        <li class="@MenuExtension.ActiveChildren("moitruong",ViewBag.ID_MENU)">
+                            <a href="/admin/environment/index">Môi trường phát triển</a>
+                        </li>
+                        <li class="@MenuExtension.ActiveChildren("moitruong",ViewBag.ID_MENU)">
+                            <a href="/admin/environment/index">Danh mục server</a>
+                        </li>
+                        <li class="@MenuExtension.ActiveChildren("moitruong",ViewBag.ID_MENU)">
+                            <a href="/admin/environment/index">Cơ sở dữ liệu</a>
+                        </li>
+                        <li class="@MenuExtension.ActiveChildren("moitruong",ViewBag.ID_MENU)">
+                            <a href="/admin/environment/index">Đối tác tích hợp</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="@MenuExtension.ActiveParent("action",ViewBag.ID_MENU_CHA)">
+                    <a href="#"><i class="fa fa-lg fa-fw fa-plug"></i> <span class="menu-item-parent">Quản lý Action</span></a>
+                    <ul>
+                        <li class="@MenuExtension.ActiveChildren("list",ViewBag.ID_MENU)">
+                            <a href="/action/index">Quản lý Action</a>
+                        </li>
+                        <li class="@MenuExtension.ActiveChildren("schema",ViewBag.ID_MENU)">
+                            <a href="/admin/schema/index">PQ Action cho đối tác</a>
+                        </li>
+                        <li class="@MenuExtension.ActiveChildren("errorcode",ViewBag.ID_MENU)">
+                            <a href="/errorcode/index">Danh sách mã lỗi</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="@MenuExtension.ActiveParent("cauhinh",ViewBag.ID_MENU_CHA)">
+                    <a href="#"><i class="fa fa-lg fa-fw fa-database"></i> <span class="menu-item-parent">Quản lý hệ thống</span></a>
+                    <ul>
+                        <li class="@MenuExtension.ActiveChildren("database",ViewBag.ID_MENU)">
+                            <a href="/admin/database/index">Log ứng dụng</a>
+                        </li>
+                        <li class="@MenuExtension.ActiveChildren("schema",ViewBag.ID_MENU)">
+                            <a href="/admin/schema/index">Quản trị cache</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-lg fa-fw fa-cogs"></i> <span class="menu-item-parent">Cài đặt</span></a>
+                    <ul>
+                        <li>
+                            <a href="/cosovatchat/index">Cấu hình hệ thống</a>
+                        </li>
+                        <li>
+                            <a href="/phonghoc/index">Cấu hình Email</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+
+
+        <span class="minifyme" data-action="minifyMenu">
+            <i class="fa fa-arrow-circle-left hit"></i>
+        </span>
+
+    </aside>
+    <!-- END NAVIGATION -->
+    <!-- MAIN PANEL -->
+    <div id="main" role="main" style="background-color:#f2f2f2">
+        @RenderBody()
+        <!-- modal-right -->
+        <div class="modal right fade" id="modalErrorMessage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content" style="overflow:hidden">
+                    <div class="modal-header">
+                        <button type="button" class="close" id="btnCloseErrorMessage"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Thông báo lỗi hệ thống</h4>
+                    </div>
+                    <div class="modal-body" style="max-height:600px; overflow-y: scroll; padding-bottom:0px;" id="modal-body-content">
+
+                        @*<div class="alert alert-info" style="margin-bottom:5px;">
+                            <strong>Lỗi ứng dụng: </strong> <i style="font-size:10px;">20:05:30 - 27/08/2020 - đã đọc</i>
+                            <p style="font-size:10px">
+                                Nguyễn Xuân Thanh
+                            </p>
+                            <a href="#" style="color:#305d8c;font-size:10px;"><i class="fa fa-angle-double-right" aria-hidden="true"></i> xem chi tiết</a>
+                        </div>*@
+                    </div>
+                    <div class="modal-footer" style="text-align:center">
+                        <button type="button" class="btn btn-info">Xem tất cả thông báo</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end modal left -->
+        <div class="modal fade" role="dialog" id="modalShowDetailError" data-keyboard="false" data-backdrop="static" style="z-index:9999">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Thông tin chi tiết lỗi</h4>
+                    </div>
+                    <div class="modal-body" style="padding-top:5px">
+                        <p id="pDetailError"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            Đóng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading-wrapper" style="z-index:999999999;">
+            <div id="loading-content"><i class="fa fa-spinner fa-spin fa-3x fa-fw fullscreen-loading"></i></div>
+        </div>
+    </div>
+    <div id="shortcut">
+        <ul>
+            <li>
+                <a href="inbox.html" class="jarvismetro-tile big-cubes bg-color-blue"> <span class="iconbox"> <i class="fa fa-envelope fa-4x"></i> <span>Mail <span class="label pull-right bg-color-darken">14</span></span> </span> </a>
+            </li>
+            <li>
+                <a href="calendar.html" class="jarvismetro-tile big-cubes bg-color-orangeDark"> <span class="iconbox"> <i class="fa fa-calendar fa-4x"></i> <span>Calendar</span> </span> </a>
+            </li>
+            <li>
+                <a href="gmap-xml.html" class="jarvismetro-tile big-cubes bg-color-purple"> <span class="iconbox"> <i class="fa fa-map-marker fa-4x"></i> <span>Maps</span> </span> </a>
+            </li>
+            <li>
+                <a href="invoice.html" class="jarvismetro-tile big-cubes bg-color-blueDark"> <span class="iconbox"> <i class="fa fa-book fa-4x"></i> <span>Invoice <span class="label pull-right bg-color-darken">99</span></span> </span> </a>
+            </li>
+            <li>
+                <a href="gallery.html" class="jarvismetro-tile big-cubes bg-color-greenLight"> <span class="iconbox"> <i class="fa fa-picture-o fa-4x"></i> <span>Gallery </span> </span> </a>
+            </li>
+            <li>
+                <a href="profile.html" class="jarvismetro-tile big-cubes selected bg-color-pinkDark"> <span class="iconbox"> <i class="fa fa-user fa-4x"></i> <span>My Profile </span> </span> </a>
+            </li>
+        </ul>
+    </div>
+    <!-- END SHORTCUT AREA -->
+    <!--================================================== -->
+    <!-- PACE LOADER - turn this on if you want ajax loading to show (caution: uses lots of memory on iDevices)-->
+    <script data-pace-options='{ "restartOnRequestAfter": true }' src="~/content/admin/js/plugin/pace/pace.min.js"></script>
+    <script src="~/content/admin/js/libs/jquery-3.2.1.min.js"></script>
+    <script src="~/content/admin/js/libs/jquery-ui.min.js"></script>
+    <!-- IMPORTANT: APP CONFIG -->
+    <script src="~/content/admin/js/app.config.js"></script>
+    <!-- JS TOUCH : include this plugin for mobile drag / drop touch events-->
+    <script src="~/content/admin/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js"></script>
+    <!-- BOOTSTRAP JS -->
+    <script src="~/content/admin/js/bootstrap/bootstrap.min.js"></script>
+    <!-- CUSTOM NOTIFICATION -->
+    <script src="~/content/admin/js/notification/SmartNotification.min.js"></script>
+    <!-- JARVIS WIDGETS -->
+    <script src="~/content/admin/js/smartwidgets/jarvis.widget.min.js"></script>
+    <!-- EASY PIE CHARTS -->
+    <script src="~/content/admin/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js"></script>
+    <!-- SPARKLINES -->
+    <script src="~/content/admin/js/plugin/sparkline/jquery.sparkline.min.js"></script>
+    <!-- JQUERY VALIDATE -->
+    <script src="~/content/admin/js/plugin/jquery-validate/jquery.validate.min.js"></script>
+    <!-- JQUERY MASKED INPUT -->
+    <script src="~/content/admin/js/plugin/masked-input/jquery.maskedinput.min.js"></script>
+    <!-- JQUERY SELECT2 INPUT -->
+    <script src="~/content/admin/js/plugin/select2/select2.min.js"></script>
+    <!-- JQUERY UI + Bootstrap Slider -->
+    <!-- browser msie issue fix -->
+    <script src="~/content/admin/js/plugin/msie-fix/jquery.mb.browser.min.js"></script>
+    <!-- FastClick: For mobile devices -->
+    <script src="~/content/admin/js/plugin/fastclick/fastclick.min.js"></script>
+    <!--[if IE 8]>
+    <h1>Your browser is out of date, please update your browser by going to www.microsoft.com/download</h1>
+    <![endif]-->
+    <!-- Demo purpose only -->
+    @*<script src="~/content/admin/js/demo.min.js"></script>*@
+    <!-- MAIN APP JS FILE -->
+    <script src="~/content/admin/js/app.min.js"></script>
+    <!-- ENHANCEMENT PLUGINS : NOT A REQUIREMENT -->
+    <!-- Voice command : plugin -->
+    <script src="~/content/admin/js/speech/voicecommand.min.js"></script>
+    <!-- SmartChat UI : plugin -->
+    <script src="~/content/admin/js/smart-chat-ui/smart.chat.ui.min.js"></script>
+    <script src="~/content/admin/js/smart-chat-ui/smart.chat.manager.min.js"></script>
+    <!-- PAGE RELATED PLUGIN(S) -->
+    <!-- Flot Chart Plugin: Flot Engine, Flot Resizer, Flot Tooltip -->
+    <script src="~/content/admin/js/plugin/flot/jquery.flot.cust.min.js"></script>
+    <script src="~/content/admin/js/plugin/flot/jquery.flot.resize.min.js"></script>
+    <script src="~/content/admin/js/plugin/flot/jquery.flot.time.min.js"></script>
+    <script src="~/content/admin/js/plugin/flot/jquery.flot.tooltip.min.js"></script>
+    <!-- Vector Maps Plugin: Vectormap engine, Vectormap language -->
+    <script src="~/content/admin/js/plugin/vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="~/content/admin/js/plugin/vectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- Full Calendar -->
+    <script src="~/content/admin/js/plugin/moment/moment.min.js"></script>
+    <script src="~/scripts/admin/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/content/admin/js/plugin/fullcalendar/fullcalendar.min.js"></script>
+    <script src="~/content/admin/js/plugin/jquery-form/jquery-form.min.js"></script>
+    <script src="~/scripts/admin/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/scripts/admin/jquery.validate.js"></script>
+    <script src="~/scripts/admin/jquery.validate.unobtrusive.js"></script>
+    <script src="~/scripts/admin/jquery.form.js"></script>
+    <script src="~/microsoft/signalr/dist/browser/signalr.js"></script>
+    <script src="~/scripts/admin/ag-grid-community.min.noStyle.js"></script>
+    <script src="~/scripts/admin/jsTree3/jstree.min.js"></script>
+    <script src="~/scripts/admin/toastr.js"></script>
+    <script src="~/scripts/admin/main.js"></script>
+    <script src="~/lib/simplePagination.js/jquery.simplePagination.js"></script>
+    <script src="~/scripts/admin/Common/CellRendererService.js"></script>
+    <script src="~/scripts/admin/Common/TreeViewService.js"></script>
+    <script src="~/scripts/admin/Common/CommonService.js"></script>
+    <script src="~/scripts/admin/Common/ConfirmService.js"></script>
+    <script src="~/scripts/admin/Common/TableService.js"></script>
+    <script src="~/scripts/admin/Common/PaginationService.js"></script>
+    <script src="~/scripts/admin/Common/ButtonService.js"></script>
+    <script src="~/scripts/admin/Common/FormService.js"></script>
+    <script src="~/scripts/admin/Common/NotifyService.js"></script>
+    <script src="~/scripts/admin/Common/Service.js"></script>
+    <script src="~/scripts/admin/Common/GridService.js"></script>
+    <script src="~/scripts/admin/Common/ModalService.js"></script>
+    <script src="~/scripts/admin/Common/ModalDeleteService.js"></script>
+    <script src="~/app/services/NotifyRealtimeService.js"></script>
+    <script>
+        $(document).ready(function () {
+            $(".code").keypress(function (e) {
+                if (e.which < 48 || (e.which > 57 && e.which < 97) || e.which > 122 || e.shiftKey/* z */) {
+                    e.preventDefault();
+                }
+            });
+            $('.upper').keyup(function () {
+                $(this).val($(this).val().toUpperCase());
+            });
+            $('.number').keypress(function (event) {
+                var keycode = event.which;
+                if (!(event.shiftKey == false && (keycode == 46 || keycode == 8 || keycode == 37 || keycode == 39 || (keycode >= 48 && keycode <= 57)))) {
+                    event.preventDefault();
+                }
+            });
+            $(".btnShowErrorSystem").click(function () {
+                $("#modalErrorMessage").modal('show');
+            });
+            $("#btnCloseErrorMessage").click(function () {
+                $("#modalErrorMessage").modal('hide');
+            });
+        });
+        function dangPhatTrien(e) {
+            e.preventDefault();
+            var notify = new NotifyService();
+            notify.error("Tính năng đang phát triển");
+        };
+        function showDetailError(id) {
+            $("#modalErrorMessage").modal('hide');
+            var html = $("#error_" + id).html();
+            $("#pDetailError").html(html);
+            $("#modalShowDetailError").modal('show');
+        }
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

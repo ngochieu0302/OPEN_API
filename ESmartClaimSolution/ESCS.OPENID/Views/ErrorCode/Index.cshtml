@@ -1,0 +1,315 @@
+﻿
+@{
+    ViewBag.ID_MENU_CHA = "action";
+    ViewBag.ID_MENU = "errorcode";
+
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<section>
+    <div class="row row-item pd-bottom-10">
+        <form action="/" method="post" name="frmTKiem">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label class="text-bold">Nội dung tìm kiếm</label>
+                    <input type="text" class="form-control" name="search" placeholder="Nhập mã lỗi/message thông báo" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="text-bold">Database</label>
+                    <select class="form-control select2" name="db_id">
+                        <option value="">Chọn database</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label class="text-bold">Schema</label>
+                    <select class="form-control select2" name="schema_id">
+                        <option value="">Chọn schema</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <button type="button" id="btnFormTimKiem" class="btn btn-success btn-tim-kiem"><i class="fa fa-search" aria-hidden="true"></i> Tìm kiếm</button>
+                    <button type="button" id="btnThemMoi" class="btn btn-primary btn-them-moi"><i class="fa fa-plus" aria-hidden="true"></i> Thêm mới</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+<section>
+    <div class="row row-item pd-bottom-5">
+        <div class='col-md-12'>
+            <div id="gridErrorCode" style="width:100%;height:462px" class="ag-theme-balham"></div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" role="dialog" id="modalErrorCode" data-keyboard="false" data-backdrop="static" style="z-index:9999">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btnCloseSaveGoiBh"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Thông tin mã lỗi hệ thống</h4>
+            </div>
+            <div class="modal-body" style="padding-top:5px">
+                <form name="frmErrorCode" novalidate="novalidate">
+                    <input type="hidden" name="gid" />
+                    <input type="hidden" name="createdate" />
+                    <input type="hidden" name="createby" />
+                    <input type="hidden" name="updatedate" />
+                    <input type="hidden" name="updateby" />
+                    <input type="hidden" name="isactive" value="1" />
+
+                    <div class="row">
+                        <div class="col-md-3" style="padding:5px;">
+                            <div class="form-group">
+                                <label class="text-bold _required">Database</label>
+                                <select class="form-control select2" name="db_id">
+                                    <option value="">Chọn database</option>
+                                </select>
+                                <p class="invalid" field="db_id"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-3" style="padding:5px;">
+                            <div class="form-group">
+                                <label class="text-bold _required">Schema</label>
+                                <select class="form-control select2" name="schema_id">
+                                    <option value="">Chọn schema</option>
+                                </select>
+                                <p class="invalid" field="schema_id"></p>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3" style="padding:5px;">
+                            <div class="form-group">
+                                <label class="text-bold">Package</label>
+                                <input type="text" class="form-control upper" name="package_name" placeholder="Tên package" />
+                                <p class="invalid" field="package_name"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-3" style="padding:5px;">
+                            <div class="form-group">
+                                <label class="text-bold">Stored Procedure</label>
+                                <input type="text" class="form-control upper" name="storedprocedure" placeholder="Tên thủ tục" />
+                                <p class="invalid" field="exc_storedprocedure"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-3" style="padding:5px;">
+                            <div class="form-group">
+                                <label class="text-bold _required">Mã lỗi server</label>
+                                <input type="text" class="form-control upper" name="server_error_code" placeholder="Mã lỗi server" />
+                                <p class="invalid" field="server_error_code"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-3" style="padding:5px;">
+                            <div class="form-group">
+                                <label class="text-bold _required upper">Mã lỗi client</label>
+                                <input type="text" class="form-control" name="client_error_code" placeholder="Mã lỗi client" />
+                                <p class="invalid" field="client_error_code"></p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding:5px;">
+                            <div class="form-group">
+                                <label class="text-bold _required">Thông báo lỗi</label>
+                                <input type="text" class="form-control" name="error_message" placeholder="Thông báo lỗi" />
+                                <p class="invalid" field="error_message"></p>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" style="float:left" class="btn btn-danger" id="btnXoaErrorCode">
+                    Xóa thông báo
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    Đóng
+                </button>
+                <button type="button" class="btn btn-primary" id="btnLuuErrorCode">
+                    Lưu thông tin
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/app/services/ErrorCodeService.js"></script>
+    <script>
+        var objDanhMuc = {};
+        var colgridErrorCode = [
+            { headerName: "STT", field: "r__", width: 50 },
+            { headerName: "Server error code", field: "server_error_code", width: 285 },
+            { headerName: "Client error code", field: "client_error_code", width: 155 },
+            { headerName: "Message", field: "error_message", width: 380 },
+            { headerName: "Package", field: "package_name", width: 150 },
+            { headerName: "Stored Procedured", field: "storedprocedure", width: 150 },
+            { headerName: "Trạng thái", field: "isactive_text", width: 100 }
+        ];
+        var _commonService = new CommonService();
+        var _notifyService = new NotifyService();
+        var _frmTKiem = new FormService("frmTKiem");
+        var _frmErrorCode = new FormService("frmErrorCode");
+        var _errorCodeService = new ErrorCodeService();
+        var _btnFormTimKiem = new ButtonService("btnFormTimKiem");
+        var _btnThemMoi = new ButtonService("btnThemMoi");
+        var _btnXoaErrorCode = new ButtonService("btnXoaErrorCode");
+        var _btnLuuErrorCode = new ButtonService("btnLuuErrorCode");
+        var _modalErrorCode = new ModalService("modalErrorCode");
+        var gridErrorCode = new GridService("gridErrorCode", colgridErrorCode, "goToPage");
+        gridErrorCode.gridOptions.onRowDoubleClicked = function (event) {
+            console.log(event.data);
+            _frmErrorCode.clearMessage();
+            _frmErrorCode.resetForm();
+            if (event.data.db_id !== "") {
+                var arr = $.grep(objDanhMuc.schema, (el, index) => { return el.sc_database_id == event.data.db_id; });
+                _frmErrorCode.getControl("exc_schema_id").setDataSource(arr, "sc_schema", "sc_id", "Chọn schema");
+                _frmErrorCode.getControl("exc_schema_id").setValue("");
+            }
+            if (event.data.ac_type_cache === "ALLOW_CACHE") {
+                $(".cache-info").show();
+            }
+            else {
+                $(".cache-info").hide();
+            }
+            if (event.data.ac_type_ddos === "APPLY") {
+                $(".ddos-info").show();
+            }
+            else {
+                $(".ddos-info").hide();
+            }
+            _frmErrorCode.setData(event.data);
+            _modalErrorCode.show();
+
+        };
+        function goToPage(pageIndex) {
+            var obj = _frmTKiem.getJsonData();
+            obj.trang = pageIndex;
+            _errorCodeService.getPaging(obj).then(res => {
+                gridErrorCode.setDataSource(res);
+            });
+        }
+        function pageLoad(callback = undefined) {
+            _errorCodeService.pageLoad().then(res => {
+                objDanhMuc = res;
+                _frmTKiem.getControl("db_id").setDataSource(res.database, "db_dbname", "db_id", "Chọn database");
+                _frmTKiem.getControl("db_id").addEventChange(val => {
+                    var arr = $.grep(objDanhMuc.schema, (el, index) => { return el.sc_database_id == val; });
+                    _frmTKiem.getControl("schema_id").setDataSource(arr, "sc_schema", "sc_id", "Chọn schema");
+                    _frmTKiem.getControl("schema_id").setValue("");
+                });
+                var databaseDefaults = $.grep(objDanhMuc.database, (el, index) => { return el.db_set_default == 1; });
+                var schemaDefaults = $.grep(objDanhMuc.schema, (el, index) => { return el.sc_set_default == 1; });
+
+                _frmErrorCode.getControl("db_id").setDataSource(res.database, "db_dbname", "db_id", "Chọn database");
+                _frmErrorCode.getControl("db_id").addEventChange(val => {
+                    var arr = $.grep(objDanhMuc.schema, (el, index) => { return el.sc_database_id == val; });
+                    _frmErrorCode.getControl("schema_id").setDataSource(arr, "sc_schema", "sc_id", "Chọn schema");
+                    _frmErrorCode.getControl("schema_id").setValue("");
+                });
+                if (databaseDefaults !== undefined && databaseDefaults !== null && databaseDefaults.length > 0) {
+                    _frmErrorCode.getControl("db_id").setValue(databaseDefaults[0].db_id.toString());
+
+                    var arrSchema = $.grep(objDanhMuc.schema, (el, index) => { return el.sc_database_id == databaseDefaults[0].db_id; });
+                    _frmErrorCode.getControl("schema_id").setDataSource(arrSchema, "sc_schema", "sc_id", "Chọn schema");
+                    _frmErrorCode.getControl("schema_id").setValue("");
+                    if (schemaDefaults !== undefined && schemaDefaults !== null && schemaDefaults.length > 0) {
+                        _frmErrorCode.getControl("schema_id").setValue(schemaDefaults[0].sc_id.toString());
+                    }
+
+                }
+            });
+            goToPage(1);
+        }
+        function isValidFormAction(objForm) {
+            _frmErrorCode.clearMessage();
+            var check = true;
+            if (_commonService.isEmpty(objForm.db_id)) {
+                _commonService.setError("db_id", "Bạn chưa chọn database");
+                check = false;
+            }
+            if (_commonService.isEmpty(objForm.schema_id)) {
+                _commonService.setError("schema_id", "Bạn chưa chọn schema");
+                check = false;
+            }
+
+            if (!_commonService.isMaxLength(objForm.exc_package_name, 50)) {
+                _commonService.setError("exc_package_name", "Tên package không quá 50 ký tự");
+                check = false;
+            }
+            if (!_commonService.isMaxLength(objForm.storedprocedure, 50)) {
+                _commonService.setError("storedprocedure", "Tên thủ tục không quá 50 ký tự");
+                check = false;
+            }
+            if (_commonService.isEmpty(objForm.server_error_code)) {
+                _commonService.setError("server_error_code", "Bạn chưa nhập mã lỗi trên server");
+                check = false;
+            }
+            if (_commonService.isEmpty(objForm.client_error_code)) {
+                _commonService.setError("client_error_code", "Bạn chưa nhập mã lỗi client");
+                check = false;
+            }
+            if (_commonService.isEmpty(objForm.error_message)) {
+                _commonService.setError("error_message", "Bạn chưa nhập lỗi thông báo");
+                check = false;
+            }
+            return check;
+        }
+        $(document).ready(function () {
+            _frmErrorCode.clearMessage();
+            gridErrorCode.createGrid();
+            pageLoad();
+            _btnFormTimKiem.click(function () {
+                goToPage(1);
+            });
+            _btnXoaErrorCode.click(function () {
+                _notifyService.error("Dữ liệu quan trọng, tính năng này tạm thời không được ứng dụng, vui lòng liên hệ quản trị viên.")
+            });
+            _btnThemMoi.click(function () {
+                _frmErrorCode.resetForm();
+
+                var databaseDefaults = $.grep(objDanhMuc.database, (el, index) => { return el.db_set_default == 1; });
+                var schemaDefaults = $.grep(objDanhMuc.schema, (el, index) => { return el.sc_set_default == 1; });
+
+                _frmErrorCode.getControl("db_id").setDataSource(objDanhMuc.database, "db_dbname", "db_id", "Chọn database");
+                _frmErrorCode.getControl("db_id").addEventChange(val => {
+                    var arr = $.grep(objDanhMuc.schema, (el, index) => { return el.sc_database_id == val; });
+                    _frmErrorCode.getControl("schema_id").setDataSource(arr, "sc_schema", "sc_id", "Chọn schema");
+                    _frmErrorCode.getControl("schema_id").setValue("");
+                });
+                if (databaseDefaults !== undefined && databaseDefaults !== null && databaseDefaults.length > 0) {
+                    _frmErrorCode.getControl("db_id").setValue(databaseDefaults[0].db_id.toString());
+
+                    var arrSchema = $.grep(objDanhMuc.schema, (el, index) => { return el.sc_database_id == databaseDefaults[0].db_id; });
+                    _frmErrorCode.getControl("schema_id").setDataSource(arrSchema, "sc_schema", "sc_id", "Chọn schema");
+                    _frmErrorCode.getControl("schema_id").setValue("");
+                    if (schemaDefaults !== undefined && schemaDefaults !== null && schemaDefaults.length > 0) {
+                        _frmErrorCode.getControl("schema_id").setValue(schemaDefaults[0].sc_id.toString());
+                    }
+                }
+
+                _frmErrorCode.clearMessage();
+                _modalErrorCode.show();
+            });
+            _btnLuuErrorCode.click(function () {
+                if (isValidFormAction(_frmErrorCode.getJsonData())) {
+                    _errorCodeService.save(_frmErrorCode.getJsonData()).then(res => {
+                        _frmTKiem.resetForm();
+                        goToPage(1);
+                        _modalErrorCode.hide();
+                        _notifyService.success("Lưu thông tin thành công.");
+                    }).catch(err => {
+                        _notifyService.error(err.responseJSON.state_info.message_body);
+                    });
+                }
+            });
+        });
+    </script>
+}
+

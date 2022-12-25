@@ -1,0 +1,171 @@
+// #############################
+// Fonts
+// #############################
+// Google Fonts For the Theme
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+// #############################
+// Typography
+// #############################
+$font-size-base: 0.875rem;
+$font-family-sans-serif: 'Varela Round',
+sans-serif !default;
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-base: 300 !default;
+$h1-font-size: 36px !default;
+$h2-font-size: 24px !default;
+$h3-font-size: 21px !default;
+$h4-font-size: 18px !default;
+$h5-font-size: 16px !default;
+$h6-font-size: 14px !default;
+// #############################
+// Typography Settings of Fonts
+// #############################
+$headings-margin-bottom: (1rem / 2) !default;
+$headings-font-weight: 400 !default;
+$headings-color: #455a64 !default;
+// #############################
+// Quickly modify global styling by enabling or disabling optional features.
+// #############################
+$enable-caret: true !default;
+$enable-rounded: true !default;
+$enable-shadows: false !default;
+$enable-gradients: false !default;
+$enable-transitions: true !default;
+$enable-hover-media-query: false !default;
+$enable-grid-classes: true !default;
+$enable-print-styles: true !default;
+// #############################
+// Body Color & bgColor Settings
+// #############################
+$body-bg: #eef5f9;
+$body-color: #67757c !default;
+// #############################
+// Grid Settings
+// #############################
+$grid-gutter-width: 30px !default;
+$grid-breakpoints: (xs: 0,
+sm: 576px,
+md: 768px,
+lg: 992px,
+xl: 1600px) !default;
+$sizes: () !default;
+$sizes: map-merge((25: 25%, 30: 30%, 35: 35%, 40: 40%, 50: 50%, 75: 75%, 100: 100%, auto: auto),
+$sizes);
+// #############################
+// Breadcrumbs Settings
+// #############################
+$breadcrumb-bg: $body-bg;
+$breadcrumb-margin-bottom: 1.5rem;
+// #############################
+// Dropdowns Settings
+// #############################
+$dropdown-item-padding-x: 1rem !default;
+$dropdown-item-padding-y: .65rem !default;
+$dropdown-border-color: $gray-200;
+$dropdown-divider-bg: $gray-100;
+$dropdown-link-color: $gray-600 !default;
+$dropdown-box-shadow: 1px 1px 15px rgba(0,
+0,
+0,
+.1) !default;
+$dropdown-border-width: 0 !default;
+// #############################
+// Buttons Settings
+// #############################
+// #############################
+// Tables
+// #############################
+$table-color: #67757c;
+$table-bg-accent: $gray-100;
+$table-bg-hover: $gray-100;
+$table-hover-bg: $gray-100 !default;
+$table-cell-padding: .75rem !default;
+$table-bg-level: -10 !default;
+$table-border-color: #e8eef3 !default;
+$table-margin-bottom: 0px !default;
+$table-header-bg: #1e88e5;
+// #############################
+// Components active Colors Settings
+// #############################
+$component-active-color: $white !default;
+$component-active-bg: $blue !default;
+// #############################
+// Forms
+// #############################
+$input-group-addon-bg: $gray-100;
+$input-border-color: $gray-200;
+$input-color: #000;
+$input-font-weight: 700;
+$input-group-addon-border-color: $gray-200;
+$input-btn-focus-color: rgba(0,
+0,
+0,
+.25) !default;
+$input-focus-border-color: rgba(0,
+0,
+0,
+0.25) !default;
+$custom-control-indicator-active-bg: rgba(0,
+0,
+0,
+35%) !default;
+$custom-select-indicator: url(../../images/custom-select.png) !default;
+$input-btn-focus-box-shadow: transparent !default;
+$custom-select-focus-box-shadow: transparent !default;
+$custom-select-indicator: str-replace(url(""),
+"%23") !default;
+// #############################
+// Border settings
+// #############################
+$border-width: 1px !default;
+$border-color: $gray-200 !default;
+$border-radius: 4px !default;
+$border-radius-lg: 5px !default;
+$border-radius-sm: .2rem !default;
+// #############################
+// Progress bars settings
+// #############################
+$progress-height: 5px !default;
+// #############################
+// Tabs active bg settings
+// #############################
+$nav-tabs-link-active-bg: $white !default;
+// #############################
+// Navbar dark & light font colors
+// #############################
+$navbar-dark-color: rgba($white,
+1) !default;
+$navbar-dark-hover-color: rgba($white,
+1) !default;
+// #############################
+// Card Related Settings Here
+// #############################
+$card-spacer-x: 1.25rem; // Card Padding
+$card-border-width: 0px !default;
+$card-border-radius: 4px !default;
+$card-columns-margin: 20px !default;
+$card-title-background: #54667a0a !default;
+// #############################
+// Badge
+// #############################
+$badge-font-weight: 400 !default;
+$badge-pill-padding-x: 0.5rem !default;
+$badge-font-size: 0.75rem !default;
+$badge-padding-y: 3px !default;
+$badge-padding-x: 10px !default;
+// #############################
+// Shadow
+// #############################
+$box-shadow-sm: 0px 2px 9px 0px rgba(169,
+184,
+200,
+0.2) !default;
+$text-muted: #8392a5 !default;
+// #############################
+// Dropdown
+// #############################
+$dropdown-color: $gray-900;
+$dropdown-font-size: 0.875rem !default;
+$dropdown-divider-bg: $border-color;

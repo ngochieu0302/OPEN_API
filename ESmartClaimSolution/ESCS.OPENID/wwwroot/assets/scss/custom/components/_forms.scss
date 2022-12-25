@@ -1,0 +1,90 @@
+.form-control {
+	display: block;
+	width: 100%;
+	height: $input-height;
+	padding: 0.15rem 0.15rem;
+	font-size: 11px;
+	font-weight: $input-font-weight;
+
+	&::placeholder {
+		font-weight: normal;
+		opacity: 1;
+	}
+
+	&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+		font-weight: normal;
+	}
+
+	&::-ms-input-placeholder { /* Microsoft Edge */
+		font-weight: normal;
+	}
+}
+
+.form-group {
+	margin-bottom: 0.3em;
+	> label {
+		font-size:12px;
+		margin-bottom: 0.25em;
+	}
+}
+
+.custom-file-label{
+	padding: $input-padding;
+	line-height:2em;
+	margin-bottom: 0px;
+}
+.custom-file-label::after{
+	padding: 0.15em 1em;
+	height: $input-height;
+	top: -1px;
+	line-height: 24px;
+}
+
+.input-group > .form-control[readonly], .input-group > .form-control-plaintext[readonly], .input-group > .custom-select[readonly], .input-group > .custom-file[readonly]{
+	pointer-events:none;
+}
+[type="checkbox"]:not(:checked)[readonly] + label:before, [type="checkbox"]:not(:checked)[readonly] + label:after {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.26);
+}
+[type="checkbox"][readonly] + label {
+  pointer-events:none;
+}
+
+[type="radio"][readonly] + label {
+  pointer-events:none;
+}
+[type="radio"][readonly]:checked + label:after, [type="radio"][readonly].with-gap:checked + label:before, [type="radio"][readonly].with-gap:checked + label:after{
+	pointer-events:none;
+	border: 2px solid #5a5a5a;
+	border-color: rgba(0, 0, 0, 0.26);
+}
+[type=radio][readonly]:not(:checked) + label:before, [type=radio][readonly]:not(:checked) + label:after{
+	border: 2px solid #5a5a5a;
+	border-color:rgba(0, 0, 0, 0.26);
+}
+
+[type=radio][readonly]:checked + label:after, [type=radio][readonly].with-gap:checked + label:after{
+	background-color: #a1aab2;
+}
+
+.switch[readonly]{
+	pointer-events:none;
+}
+
+select.select2[readonly] + span.select2-container{
+	pointer-events:none;
+}
+
+select.select2.is-invalid + span.select2-container .select2-selection{
+	border-color:#fc4b6c;
+}
+
+input.is-invalid + div.input-group-append .input-group-text{
+	border-color:#fc4b6c;
+	color:#fc4b6c;
+}
+
+input.number, input.decimal{
+	text-align:right;
+}

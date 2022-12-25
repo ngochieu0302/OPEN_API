@@ -1,0 +1,6 @@
+2022-09-08T14:58:33.3467331+07:00  [INF] Now listening on: "http://localhost:5000" (d826f4b8)
+2022-09-08T14:58:33.3828707+07:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2022-09-08T14:58:33.3830708+07:00  [INF] Hosting environment: "Development" (c3307c92)
+2022-09-08T14:58:33.3831154+07:00  [INF] Content root path: "D:\project\OpenID\ESmartClaimSolution\ESCS.API" (b5d60022)
+2022-09-08T14:58:34.0617905+07:00 0HMKHDVMJUJ4V:00000001 [WRN] Failed to determine the https port for redirect. (ca76cc21)
+2022-09-08T17:51:06.3619076+07:00  [INF] Application is shutting down... (90f52c38)

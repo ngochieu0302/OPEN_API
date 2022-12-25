@@ -1,0 +1,95 @@
+﻿@*
+    Trình duyệt
+*@
+
+<div id="ModalTrinhDuyet" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header py-1">
+                <h4 class="modal-title" id="">Trình phê duyệt</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body" style="background-color:#54667a0a; padding:0px">
+                <div class="p-2">
+                    <form id="frmModalTrinhDuyet">
+                        <div class="row">
+                            <div class="col col-6">
+                                <div class="form-group">
+                                    <label class="_required">Đơn vị duyệt</label>
+                                    <select class="select2 form-control custom-select" required name="dvi" style="width:100%"></select>
+                                </div>
+                            </div>
+                            <div class="col col-6">
+                                <div class="form-group">
+                                    <label class="_required">Người duyệt</label>
+                                    <select class="select2 form-control custom-select" required name="nsd" style="width:100%"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:8px">
+                            <div class="col col-12">
+                                <div class="form-group">
+                                    <label class="_required">Nội dung trình</label>
+                                    <textarea class="form-control" name="nd" required rows="5" placeholder="Nội dung trình"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:8px">
+                            <div class="col col-12">
+                                <button type="button" class="btn btn-primary btn-sm wd-90" id="btnLuuTrinhDuyet">
+                                    <i class="fa fa-save"></i>&nbsp;&nbsp;Trình
+                                </button>
+                                <button type="button" class="btn btn-outline-primary btn-sm mx-1" id="btnHuyTrinhDuyet">
+                                    <i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Hủy trình
+                                </button>
+                                <a href="#" id="btnTrinhDuyetLichSu" data-toggle="modal" data-backdrop="static" data-keyboard="false">
+                                    <i class="fas fa-share-square"></i>
+                                    &nbsp;Lịch sử trình duyệt
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top:10px; margin-bottom:10px" id="LichSuTrinhDuyet">
+                            <div class="col-12">
+                                <div class="table-responsive">
+                                    <table id="tblLichSuTrinhDuyet" class="table table-bordered">
+                                        <thead class="font-weight-bold card-title-bg">
+                                            <tr class="text-center uppercase">
+                                                <th>Ngày</th>
+                                                <th>Loại</th>
+                                                <th>Người trình</th>
+                                                <th>Người duyệt</th>
+                                                <th>Ngày duyệt</th>
+                                                <th>Trạng thái</th>
+                                                <th>Nội dung</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="text-center">16/09/2020 13:22</td>
+                                                <td class="text-center">Trình duyệt bảo lãnh</td>
+                                                <td>admin@escs.vn</td>
+                                                <td class="text-center">nguoiduyet@escs.vn</td>
+                                                <td class="text-center">16/09/2020 15:30</td>
+                                                <td class="text-center">Chưa duyệt</td>
+                                                <td class="text-center"><i class="far fa-file-alt"></i></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">15/09/2020 13:22</td>
+                                                <td class="text-center">Trình duyệt giá</td>
+                                                <td>admin@escs.vn</td>
+                                                <td class="text-center">nguoiduyet@escs.vn</td>
+                                                <td class="text-center">15/09/2020 15:30</td>
+                                                <td class="text-center" style="color:blue">Đã duyệt</td>
+                                                <td class="text-center"><i class="far fa-file-alt"></i></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

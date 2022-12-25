@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>8fea9010-80d1-4840-b108-fc1c529309dc</UserSecretsId>
+	<PreserveCompilationContext>true</PreserveCompilationContext>
+	<RazorCompileOnPublish>false</RazorCompileOnPublish>
+	<CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="bootstrap" Version="3.3.7" />
+    <PackageReference Include="F23.StringSimilarity" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="3.1.7" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.6.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="MongoDB.Driver" Version="2.11.0" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\content\admin\logo\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\assets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ESCS.BUS\ESCS.BUS.csproj" />
+    <ProjectReference Include="..\ESCS.COMMON\ESCS.COMMON.csproj" />
+    <ProjectReference Include="..\ESCS.MODEL\ESCS.MODEL.csproj" />
+  </ItemGroup>
+
+
+
+</Project>

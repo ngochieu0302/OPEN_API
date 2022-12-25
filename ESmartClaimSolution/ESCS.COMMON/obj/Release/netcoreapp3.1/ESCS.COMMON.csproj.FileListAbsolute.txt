@@ -1,0 +1,17 @@
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\bin\Release\netcoreapp3.1\ESCS.COMMON.deps.json
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\bin\Release\netcoreapp3.1\ESCS.COMMON.dll
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\bin\Release\netcoreapp3.1\ESCS.COMMON.pdb
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\bin\Release\netcoreapp3.1\DevExpress.Data.v19.1.dll
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\bin\Release\netcoreapp3.1\DevExpress.Office.v19.1.Core.dll
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\bin\Release\netcoreapp3.1\DevExpress.Pdf.v19.1.Core.dll
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\bin\Release\netcoreapp3.1\DevExpress.Printing.v19.1.Core.dll
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\bin\Release\netcoreapp3.1\DevExpress.RichEdit.v19.1.Core.dll
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\bin\Release\netcoreapp3.1\DevExpress.XtraRichEdit.v19.1.dll
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\bin\Release\netcoreapp3.1\system.windows.forms.dll
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\obj\Release\netcoreapp3.1\ESCS.COMMON.csprojAssemblyReference.cache
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\obj\Release\netcoreapp3.1\ESCS.COMMON.AssemblyInfoInputs.cache
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\obj\Release\netcoreapp3.1\ESCS.COMMON.AssemblyInfo.cs
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\obj\Release\netcoreapp3.1\ESCS.COMMON.csproj.CoreCompileInputs.cache
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\obj\Release\netcoreapp3.1\ESCS.COMMON.csproj.CopyComplete
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\obj\Release\netcoreapp3.1\ESCS.COMMON.dll
+D:\project\OpenID\ESmartClaimSolution\ESCS.COMMON\obj\Release\netcoreapp3.1\ESCS.COMMON.pdb

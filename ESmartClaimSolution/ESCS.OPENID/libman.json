@@ -1,0 +1,51 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.3.1",
+      "destination": "wwwroot/lib/jquery/"
+    },
+    {
+      "library": "font-awesome@4.7.0",
+      "destination": "wwwroot/lib/font-awesome/"
+    },
+    {
+      "library": "select2@4.0.13",
+      "destination": "wwwroot/lib/select2/"
+    },
+    {
+      "library": "modernizr@2.8.3",
+      "destination": "wwwroot/lib/modernizr/"
+    },
+    {
+      "library": "twitter-bootstrap@3.3.7",
+      "destination": "wwwroot/lib/twitter-bootstrap/"
+    },
+    {
+      "library": "simplePagination.js@1.6",
+      "destination": "wwwroot/lib/simplePagination.js/"
+    },
+    {
+      "library": "angular.js@1.8.0",
+      "destination": "wwwroot/lib/angular.js/"
+    },
+    {
+      "library": "angular-route@1.8.0",
+      "destination": "wwwroot/lib/angular-route/"
+    },
+    {
+      "library": "popper.js@2.4.4",
+      "destination": "wwwroot/lib/popper.js/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "@microsoft/signalr@3.1.7",
+      "destination": "wwwroot/microsoft/signalr/"
+    },
+    {
+      "library": "materialize@1.0.0",
+      "destination": "wwwroot/lib/materialize/"
+    }
+  ]
+}

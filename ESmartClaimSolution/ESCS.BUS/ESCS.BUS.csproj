@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="ESCS\**" />
+    <EmbeddedResource Remove="ESCS\**" />
+    <None Remove="ESCS\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Services\LogRequestService.cs" />
+    <Compile Remove="Services\MongoDBService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="F23.StringSimilarity" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ESCS.DAL\ESCS.DAL.csproj" />
+    <ProjectReference Include="..\ESCS.MODEL\ESCS.MODEL.csproj" />
+  </ItemGroup>
+
+</Project>

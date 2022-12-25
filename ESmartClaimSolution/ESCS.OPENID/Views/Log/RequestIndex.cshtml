@@ -1,0 +1,173 @@
+﻿@{
+    ViewBag.ID_MENU_CHA = "log";
+    ViewBag.ID_MENU = "list";
+
+    ViewData["Title"] = "Danh sách log request";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row page-titles">
+    <div class="col-md-5 col-12 align-self-center">
+        <h3 class="text-themecolor mb-0">@ViewData["Title"]</h3>
+    </div>
+    <div class="col-md-7 col-12 align-self-center justify-content-end d-none d-md-flex">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="javascript:void(0)">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item active">@ViewData["Title"]</li>
+        </ol>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-12 col-md-12 pd-3">
+            <div class="card">
+                <div class="card-body">
+                    <form name="frmTKiem">
+                        <div class="row">
+                            <div class="col col-4">
+                                <div class="form-group">
+                                    <label>Nội dung tìm kiếm</label>
+                                    <input type="text" class="form-control" name="tim" placeholder="Nhập thông tin tìm kiếm" />
+                                </div>
+                            </div>
+                            <div class="col col-3" style="padding-top:21px;">
+                                <button type="button" class="btn btn-primary btn-sm wd-30p" id="btnFormTimKiem">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div id="gridLog" class="table-app"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="inside-modal" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-inside">
+        <div class="modal-content">
+            <div class="modal-header py-1">
+                <h4 class="modal-title" id="titleUpdateContract">Thông tin chi tiết log</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body" id="detailLog">
+                
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="templateDetailLog">
+    <div class="row">
+        <div class="col-4">
+            <label><b class="font-weight-bold">Shema</b>: <%- schema %>://<%- host %>/<%- path %></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <label><b class="font-weight-bold">Query string</b>: <%- query_string %></label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            <label><b class="font-weight-bold">Headers</b></label>
+            <ul>
+                <% _.forEach(headers, function(item,key) { %>
+                <li style="word-break:break-all"><b class="font-weight-bold"><%- key %>:</b> <%- item %></li>
+                <% })%>
+            </ul>
+        </div>
+        <div class="col-8">
+            <label><b class="font-weight-bold">Request </b>(<i><%- formatTime(time_request) %></i>)</label>
+            <div style="word-break:break-all">
+                <%- body %>
+            </div>
+            <label><b class="font-weight-bold">Response </b>(<i><%- formatTime(time_response) %></i>) </label>
+            <div style="word-break:break-all;max-height: 260px;overflow-x:hidden; overflow-y:scroll" class="scrollable">
+                <%- response %>
+            </div>
+        </div>
+    </div>
+</script>
+@section scripts{
+    <script src="~/app/services/LogService.js"></script>
+    <script>
+        const GRID_HO_SO_SO_DONG = 14;
+
+        var objDanhMuc = {};
+        var _commonService = new CommonService();
+        var _notifyService = new NotifyService();
+        var _frmTKiem = new FormService("frmTKiem");
+        var _logService = new LogService();
+        var configColumn = [
+            { field: "schema", title: "Schema", width: "6%", headerSort: false, hozAlign: "center", formatter: "html" },
+            { field: "host", title: "Host", width: "10%", hozAlign: "center", headerSort: false },
+            { field: "path", title: "Url", width: "12%", headerSort: false },
+            { field: "time_request", title: "Time request", width: "10%", hozAlign: "center", headerSort: false, formatter: formatterTime },
+            { field: "headers", title: "Headers", width: "5%", hozAlign: "center", headerSort: false, formatter: formatterHeader },
+            { field: "body", title: "Body", width: "57%", headerSort: false }
+        ];
+        var _gridLog = new GridViewService("gridLog", configColumn, getPaging, rowClick);
+        function formatterHeader(cell, formatterParams, onRendered) {
+            return '<i class="fas fa-eye" style="color:#28a745"></i>';
+        }
+        function formatterTime(cell, formatterParams, onRendered) {
+            var str = cell.getValue().toString();
+            return str.substring(6, 8) + "/" + str.substring(4, 6) + "/" + str.substring(0, 4) + " " + str.substring(8, 10) + ":" + str.substring(10, 12) + ":" + str.substring(12, 14);
+        }
+        function formatTime(str) {
+            str = str.toString();
+            return str.substring(6, 8) + "/" + str.substring(4, 6) + "/" + str.substring(0, 4) + " " + str.substring(8, 10) + ":" + str.substring(10, 12) + ":" + str.substring(12, 14);
+        }
+        function showModal(ishow = true) {
+            $('#inside-modal .nav-tabs.profile-tab').tabdrop();
+            $("#inside-modal").modal("show");
+            $(".page-wrapper").addClass("position-relative");
+            $("#inside-modal").addClass("position-absolute");
+            $("#inside-modal").css("padding-right", "");
+            $("#inside-modal").css("padding-left", "");
+            $("#inside-modal").css("padding-top", "50px");
+            $("#inside-modal").css("z-index", "9");
+            $('.modal-backdrop').hide();
+            $('body').removeClass("modal-open");
+            $('body').css("padding-right", "0px");
+            if (!ishow) {
+                $("#inside-modal").modal("hide");
+            }
+        }
+        function getPaging(trang) {
+            var objTimKiem = _frmTKiem.getJsonData();
+            objTimKiem.trang = trang;
+            objTimKiem.so_dong = GRID_HO_SO_SO_DONG;
+            _logService.getPaging(objTimKiem).then(res => {
+                _gridLog.setDataSource(res, trang);
+                if (res.data !== null && res.data.length < GRID_HO_SO_SO_DONG) {
+                    _gridLog.addRowEmpty(GRID_HO_SO_SO_DONG - res.data.length);
+                }
+            });
+        }
+        function rowClick(data, row) {
+            _logService.getResponseById({ id: data.id }).then(res => {
+                data.response = res.body;
+                data.time_response = res.time_response;
+                for (var i = 0; i < row.getTable().getRows().length; i++) {
+                    row.getTable().getRows()[i].deselect();
+                }
+                row.select();
+                ESUtil.genHTML("templateDetailLog", "detailLog", data);
+                showModal();
+            });
+        }
+        $(document).ready(function () {
+            $("#btnFormTimKiem").click(function () {
+                getPaging(1);
+            });
+            getPaging(1);
+        });
+    </script>
+}

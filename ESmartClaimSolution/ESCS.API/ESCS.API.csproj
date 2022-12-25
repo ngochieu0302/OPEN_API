@@ -1,0 +1,1294 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>1933cef5-8df0-42a0-8274-e94990f6e65b</UserSecretsId>
+    <DockerDefaultTargetOS>Windows</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Files\CTYBHABC\**" />
+    <Content Remove="Files\CTYBHABC\**" />
+    <EmbeddedResource Remove="Files\CTYBHABC\**" />
+    <None Remove="Files\CTYBHABC\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Attributes\SystemAuthentication.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\configuration\key-3062b7d7-0a87-454b-8835-2e8c46a96bf0.xml" />
+    <Content Include="bin\Debug\netcoreapp3.1\appsettings.Development.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\appsettings.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\appsettings.Production.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\appsettings.Test.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\App_Data\ESCS\esmart-claim-solution-firebase-adminsdk.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\ESCS.API.deps.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\ESCS.API.runtimeconfig.dev.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\ESCS.API.runtimeconfig.json" />
+    <Content Include="bin\Debug\netcoreapp3.1\Properties\launchSettings.json" />
+    <Content Include="bin\Release\netcoreapp3.1\appsettings.Development.json" />
+    <Content Include="bin\Release\netcoreapp3.1\appsettings.json" />
+    <Content Include="bin\Release\netcoreapp3.1\appsettings.Production.json" />
+    <Content Include="bin\Release\netcoreapp3.1\appsettings.Test.json" />
+    <Content Include="bin\Release\netcoreapp3.1\App_Data\ESCS\esmart-claim-solution-firebase-adminsdk.json" />
+    <Content Include="bin\Release\netcoreapp3.1\ESCS.API.deps.json" />
+    <Content Include="bin\Release\netcoreapp3.1\ESCS.API.runtimeconfig.dev.json" />
+    <Content Include="bin\Release\netcoreapp3.1\ESCS.API.runtimeconfig.json" />
+    <Content Include="bin\Release\netcoreapp3.1\Properties\launchSettings.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="F23.StringSimilarity" Version="5.0.0" />
+    <PackageReference Include="FirebaseAdmin" Version="2.0.0" />
+    <PackageReference Include="FreeSpire.Doc" Version="7.11.0" />
+    <PackageReference Include="Google.Cloud.Vision.V1" Version="2.4.0" />
+    <PackageReference Include="itext7.pdfhtml" Version="3.0.2" />
+    <PackageReference Include="Microsoft.AspNet.SignalR.Core" Version="2.4.1" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.6" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.7" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="3.6.0" />
+    <PackageReference Include="Microsoft.DotNet.PlatformAbstractions" Version="3.1.6" />
+    <PackageReference Include="Microsoft.IO.RecyclableMemoryStream" Version="1.3.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.10" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="RazorEngine.NetCore" Version="3.1.0" />
+    <PackageReference Include="Select.HtmlToPdf.NetCore" Version="20.2.0" />
+    <PackageReference Include="Serilog.Extensions.Logging.File" Version="2.0.0" />
+    <PackageReference Include="StackExchange.Redis.WordSearch" Version="1.1.2" />
+    <PackageReference Include="Syncfusion.HtmlToPdfConverter.QtWebKit.Net.Core" Version="18.3.0.47" />
+    <PackageReference Include="System.Security.Cryptography.X509Certificates" Version="4.3.2" />
+    <PackageReference Include="System.Security.Cryptography.Xml" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ESCS.BUS\ESCS.BUS.csproj" />
+    <ProjectReference Include="..\ESCS.COMMON\ESCS.COMMON.csproj" />
+    <ProjectReference Include="..\ESCS.MODEL\ESCS.MODEL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="App_Data\Temp\" />
+    <Folder Include="App_Start\" />
+    <Folder Include="bin\Debug\netcoreapp3.1\BlinkBinariesWindows\locales\" />
+    <Folder Include="bin\Debug\netcoreapp3.1\Files\css\bootstrap-3.3.7\grunt\" />
+    <Folder Include="bin\Debug\netcoreapp3.1\Files\css\bootstrap-3.3.7\less\" />
+    <Folder Include="bin\Debug\netcoreapp3.1\Files\MauIn\css\bootstrap-3.3.7\grunt\" />
+    <Folder Include="bin\Debug\netcoreapp3.1\Files\MauIn\css\bootstrap-3.3.7\less\" />
+    <Folder Include="bin\Release\netcoreapp3.1\BlinkBinariesWindows\locales\" />
+    <Folder Include="bin\Release\netcoreapp3.1\Files\css\bootstrap-3.3.7\grunt\" />
+    <Folder Include="bin\Release\netcoreapp3.1\Files\css\bootstrap-3.3.7\less\" />
+    <Folder Include="bin\Release\netcoreapp3.1\Files\MauIn\css\bootstrap-3.3.7\grunt\" />
+    <Folder Include="bin\Release\netcoreapp3.1\Files\MauIn\css\bootstrap-3.3.7\less\" />
+    <Folder Include="Logs\" />
+    <Folder Include="Uploads\FilesAttachMail\" />
+    <Folder Include="wwwroot\public\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ClosedXML.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Common.Logging.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Common.Logging.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Dapper.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\DnsClient.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\DocumentFormat.OpenXml.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\dotnet-compile-postsharp.exe" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.API.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.API.exe" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.API.pdb" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.API.Views.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.BUS.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.BUS.pdb" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.COMMON.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.COMMON.pdb" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.DAL.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.DAL.pdb" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.MODEL.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ESCS.MODEL.pdb" />
+    <None Include="bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ExcelNumberFormat.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\FirebaseAdmin.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Google.Api.Gax.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Google.Api.Gax.Rest.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Google.Apis.Auth.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Google.Apis.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Google.Apis.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\HtmlRenderer.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\HtmlRenderer.PdfSharp.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\itext.barcodes.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\itext.forms.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\itext.html2pdf.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\itext.io.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\itext.kernel.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\itext.layout.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\itext.pdfa.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\itext.sign.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\itext.styledxmlparser.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\itext.svg.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.DataProtection.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.DataProtection.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.IO.RecyclableMemoryStream.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\MongoDB.Bson.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\MongoDB.Driver.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\MongoDB.Driver.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\MongoDB.Driver.Legacy.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\MongoDB.Libmongocrypt.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Nancy.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\NuGet.Frameworks.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Oracle.ManagedDataAccess.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\PdfSharpCore.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Pipelines.Sockets.Unofficial.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\PostSharp.Compiler.Client.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\PostSharp.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\icudt49.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\icuin49.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\icuuc49.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qdds.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qgif.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qicns.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qico.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qjp2.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qjpeg.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qmng.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qsvg.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qtga.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qtiff.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qwbmp.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\imageformats\qwebp.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\libEGL.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\libGLESv2.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\platforms\qminimal.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\platforms\qoffscreen.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\platforms\qwindows.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Gui.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Multimedia.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5MultimediaWidgets.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Network.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5OpenGL.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Positioning.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5PrintSupport.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Qml.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Quick.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Sensors.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Sql.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Svg.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5WebChannel.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5WebKit.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5WebKitWidgets.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Qt5Widgets.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\Syncfusion.WebKitWrapper" />
+    <None Include="bin\Debug\netcoreapp3.1\QtBinariesWindows\zlib1.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\RazorEngine.NetCore.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Antiforgery.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Cookies.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.OAuth.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Authorization.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Authorization.Policy.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Authorization.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Forms.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Server.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Web.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Connections.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.CookiePolicy.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Cors.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.HealthChecks.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.HostFiltering.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Html.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Connections.Common.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Connections.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Extensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Features.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.HttpOverrides.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.HttpsPolicy.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Identity.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Localization.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Localization.Routing.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Metadata.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.ApiExplorer.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Cors.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.DataAnnotations.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Formatters.Json.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Formatters.Xml.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Localization.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Razor.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.RazorPages.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.TagHelpers.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.ViewFeatures.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Razor.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Razor.Runtime.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCaching.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCompression.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Rewrite.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Routing.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Routing.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.HttpSys.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.IIS.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.IISIntegration.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.Session.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Common.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Protocols.Json.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.StaticFiles.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.WebSockets.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.AspNetCore.WebUtilities.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.CSharp.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Caching.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Caching.Memory.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Binder.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.CommandLine.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.EnvironmentVariables.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Ini.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Json.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.KeyPerFile.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.UserSecrets.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Xml.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.DependencyInjection.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Composite.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Embedded.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Physical.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.FileSystemGlobbing.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Hosting.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Http.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Identity.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Identity.Stores.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Localization.Abstractions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Localization.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Configuration.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Console.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Debug.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.EventLog.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.EventSource.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Logging.TraceSource.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.ObjectPool.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.Options.DataAnnotations.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Extensions.WebEncoders.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.JSInterop.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Net.Http.Headers.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.VisualBasic.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.VisualBasic.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Win32.Primitives.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\Microsoft.Win32.Registry.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\mscorlib.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\netstandard.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.AppContext.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Buffers.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Collections.Concurrent.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Collections.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Collections.NonGeneric.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Collections.Specialized.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.ComponentModel.Annotations.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.ComponentModel.DataAnnotations.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.ComponentModel.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.ComponentModel.EventBasedAsync.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.ComponentModel.Primitives.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.ComponentModel.TypeConverter.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Configuration.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Console.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Data.Common.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Data.DataSetExtensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Data.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.Contracts.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.Debug.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.DiagnosticSource.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.EventLog.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.FileVersionInfo.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.Process.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.StackTrace.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.TextWriterTraceListener.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.Tools.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.TraceSource.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Diagnostics.Tracing.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Drawing.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Drawing.Primitives.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Dynamic.Runtime.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Globalization.Calendars.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Globalization.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Globalization.Extensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.Compression.Brotli.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.Compression.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.Compression.FileSystem.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.Compression.ZipFile.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.FileSystem.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.FileSystem.DriveInfo.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.FileSystem.Primitives.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.FileSystem.Watcher.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.IsolatedStorage.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.MemoryMappedFiles.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.Pipes.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.IO.UnmanagedMemoryStream.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Linq.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Linq.Expressions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Linq.Parallel.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Linq.Queryable.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Memory.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.Http.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.HttpListener.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.Mail.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.NameResolution.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.NetworkInformation.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.Ping.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.Primitives.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.Requests.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.Security.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.ServicePoint.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.Sockets.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.WebClient.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.WebHeaderCollection.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.WebProxy.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.WebSockets.Client.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Net.WebSockets.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Numerics.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Numerics.Vectors.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.ObjectModel.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Reflection.DispatchProxy.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Reflection.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Reflection.Emit.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Reflection.Emit.ILGeneration.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Reflection.Emit.Lightweight.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Reflection.Extensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Reflection.Metadata.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Reflection.Primitives.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Reflection.TypeExtensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Resources.Reader.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Resources.ResourceManager.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Resources.Writer.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.CompilerServices.VisualC.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.Extensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.Handles.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.InteropServices.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.InteropServices.WindowsRuntime.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.Intrinsics.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.Loader.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.Numerics.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.Formatters.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.Json.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.Primitives.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Runtime.Serialization.Xml.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Security.Claims.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Algorithms.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Cng.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Csp.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Encoding.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.Primitives.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Security.Cryptography.X509Certificates.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Security.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Security.Principal.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Security.SecureString.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.ServiceModel.Web.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.ServiceProcess.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Text.Encoding.CodePages.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Text.Encoding.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Text.Encoding.Extensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Text.Encodings.Web.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Text.RegularExpressions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Threading.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Threading.Overlapped.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Threading.Tasks.Dataflow.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Threading.Tasks.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Threading.Tasks.Extensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Threading.Tasks.Parallel.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Threading.Thread.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Threading.ThreadPool.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Threading.Timer.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Transactions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Transactions.Local.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.ValueTuple.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Web.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Web.HttpUtility.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Windows.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Xml.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Xml.Linq.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Xml.ReaderWriter.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Xml.Serialization.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Xml.XDocument.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Xml.XmlDocument.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Xml.XmlSerializer.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Xml.XPath.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\System.Xml.XPath.XDocument.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\refs\WindowsBase.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Cng.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\native\libzstd.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\native\snappy32.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\runtimes\win\native\snappy64.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Select.Html.dep" />
+    <None Include="bin\Debug\netcoreapp3.1\Select.HtmlToPdf.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ServiceStack.Common.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ServiceStack.Interfaces.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ServiceStack.Redis.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\ServiceStack.Text.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\SharpCompress.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\SixLabors.Core.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\SixLabors.Fonts.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\SixLabors.ImageSharp.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\StackExchange.Redis.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\StackExchange.Redis.WordSearch.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Syncfusion.Compression.Portable.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Syncfusion.HtmlConverter.Portable.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\Syncfusion.Pdf.Portable.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Composition.AttributedModel.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Composition.Convention.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Composition.Hosting.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Composition.Runtime.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Composition.TypedParts.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Diagnostics.PerformanceCounter.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Formats.Asn1.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.IO.Packaging.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.IO.Pipelines.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Security.AccessControl.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Security.Cryptography.Cng.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Security.Cryptography.Xml.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Security.Permissions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Security.Principal.Windows.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Text.Json.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Threading.Channels.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\System.Windows.Extensions.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\TestaCache.NetStandard.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\BouncyCastle.Crypto.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ClosedXML.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Common.Logging.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Common.Logging.dll" />
+    <None Include="bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Dapper.dll" />
+    <None Include="bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\de\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\DnsClient.dll" />
+    <None Include="bin\Release\netcoreapp3.1\DocumentFormat.OpenXml.dll" />
+    <None Include="bin\Release\netcoreapp3.1\dotnet-aspnet-codegenerator-design.dll" />
+    <None Include="bin\Release\netcoreapp3.1\dotnet-compile-postsharp.exe" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.API.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.API.exe" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.API.pdb" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.API.Views.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.BUS.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.BUS.pdb" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.COMMON.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.COMMON.pdb" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.DAL.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.DAL.pdb" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.MODEL.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ESCS.MODEL.pdb" />
+    <None Include="bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\es\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ExcelNumberFormat.dll" />
+    <None Include="bin\Release\netcoreapp3.1\FirebaseAdmin.dll" />
+    <None Include="bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Google.Api.Gax.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Google.Api.Gax.Rest.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Google.Apis.Auth.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Google.Apis.Auth.PlatformServices.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Google.Apis.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Google.Apis.dll" />
+    <None Include="bin\Release\netcoreapp3.1\HtmlRenderer.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\HtmlRenderer.PdfSharp.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\itext.barcodes.dll" />
+    <None Include="bin\Release\netcoreapp3.1\itext.forms.dll" />
+    <None Include="bin\Release\netcoreapp3.1\itext.html2pdf.dll" />
+    <None Include="bin\Release\netcoreapp3.1\itext.io.dll" />
+    <None Include="bin\Release\netcoreapp3.1\itext.kernel.dll" />
+    <None Include="bin\Release\netcoreapp3.1\itext.layout.dll" />
+    <None Include="bin\Release\netcoreapp3.1\itext.pdfa.dll" />
+    <None Include="bin\Release\netcoreapp3.1\itext.sign.dll" />
+    <None Include="bin\Release\netcoreapp3.1\itext.styledxmlparser.dll" />
+    <None Include="bin\Release\netcoreapp3.1\itext.svg.dll" />
+    <None Include="bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\it\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.AspNetCore.DataProtection.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.AspNetCore.DataProtection.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.AspNetCore.Razor.Language.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.CSharp.Workspaces.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Razor.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.CodeAnalysis.Workspaces.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.DotNet.PlatformAbstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyModel.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Extensions.Options.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Extensions.PlatformAbstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Extensions.Primitives.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.IO.RecyclableMemoryStream.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Contracts.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.EntityFrameworkCore.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll" />
+    <None Include="bin\Release\netcoreapp3.1\MongoDB.Bson.dll" />
+    <None Include="bin\Release\netcoreapp3.1\MongoDB.Driver.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\MongoDB.Driver.dll" />
+    <None Include="bin\Release\netcoreapp3.1\MongoDB.Driver.Legacy.dll" />
+    <None Include="bin\Release\netcoreapp3.1\MongoDB.Libmongocrypt.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Nancy.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Newtonsoft.Json.Bson.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Newtonsoft.Json.dll" />
+    <None Include="bin\Release\netcoreapp3.1\NuGet.Frameworks.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Oracle.ManagedDataAccess.dll" />
+    <None Include="bin\Release\netcoreapp3.1\PdfSharpCore.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Pipelines.Sockets.Unofficial.dll" />
+    <None Include="bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\PostSharp.Compiler.Client.dll" />
+    <None Include="bin\Release\netcoreapp3.1\PostSharp.dll" />
+    <None Include="bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\icudt49.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\icuin49.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\icuuc49.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qdds.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qgif.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qicns.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qico.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qjp2.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qjpeg.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qmng.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qsvg.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qtga.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qtiff.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qwbmp.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\imageformats\qwebp.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\libEGL.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\libGLESv2.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\platforms\qminimal.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\platforms\qoffscreen.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\platforms\qwindows.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Gui.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Multimedia.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5MultimediaWidgets.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Network.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5OpenGL.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Positioning.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5PrintSupport.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Qml.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Quick.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Sensors.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Sql.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Svg.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5WebChannel.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5WebKit.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5WebKitWidgets.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Qt5Widgets.dll" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\Syncfusion.WebKitWrapper" />
+    <None Include="bin\Release\netcoreapp3.1\QtBinariesWindows\zlib1.dll" />
+    <None Include="bin\Release\netcoreapp3.1\RazorEngine.NetCore.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Antiforgery.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Cookies.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authentication.OAuth.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authorization.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Authorization.Policy.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Authorization.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Forms.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Server.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Components.Web.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Connections.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.CookiePolicy.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Cors.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.DataProtection.Extensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Diagnostics.HealthChecks.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HostFiltering.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Html.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Connections.Common.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Connections.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Extensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Http.Features.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HttpOverrides.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.HttpsPolicy.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Identity.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Localization.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Localization.Routing.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Metadata.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.ApiExplorer.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Cors.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.DataAnnotations.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Formatters.Json.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Formatters.Xml.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Localization.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.Razor.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.RazorPages.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.TagHelpers.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Mvc.ViewFeatures.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Razor.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Razor.Runtime.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCaching.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCaching.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.ResponseCompression.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Rewrite.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Routing.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Routing.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.HttpSys.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.IIS.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.IISIntegration.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.Session.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Common.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.SignalR.Protocols.Json.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.StaticFiles.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.WebSockets.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.AspNetCore.WebUtilities.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.CSharp.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Caching.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Caching.Memory.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Binder.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.CommandLine.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.EnvironmentVariables.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Ini.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Json.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.KeyPerFile.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.UserSecrets.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Configuration.Xml.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.DependencyInjection.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Composite.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Embedded.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileProviders.Physical.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.FileSystemGlobbing.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Hosting.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Http.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Identity.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Identity.Stores.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Localization.Abstractions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Localization.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Configuration.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Console.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.Debug.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.EventLog.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.EventSource.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Logging.TraceSource.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.ObjectPool.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.Options.DataAnnotations.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Extensions.WebEncoders.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.JSInterop.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Net.Http.Headers.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.VisualBasic.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.VisualBasic.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Win32.Primitives.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\Microsoft.Win32.Registry.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\mscorlib.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\netstandard.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.AppContext.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Buffers.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Collections.Concurrent.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Collections.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Collections.NonGeneric.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Collections.Specialized.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.ComponentModel.Annotations.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.ComponentModel.DataAnnotations.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.ComponentModel.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.ComponentModel.EventBasedAsync.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.ComponentModel.Primitives.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.ComponentModel.TypeConverter.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Configuration.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Console.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Data.Common.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Data.DataSetExtensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Data.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.Contracts.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.Debug.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.DiagnosticSource.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.EventLog.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.FileVersionInfo.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.Process.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.StackTrace.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.TextWriterTraceListener.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.Tools.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.TraceSource.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Diagnostics.Tracing.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Drawing.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Drawing.Primitives.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Dynamic.Runtime.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Globalization.Calendars.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Globalization.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Globalization.Extensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.Compression.Brotli.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.Compression.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.Compression.FileSystem.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.Compression.ZipFile.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.DriveInfo.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.Primitives.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.FileSystem.Watcher.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.IsolatedStorage.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.MemoryMappedFiles.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.Pipes.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.IO.UnmanagedMemoryStream.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Linq.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Linq.Expressions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Linq.Parallel.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Linq.Queryable.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Memory.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.Http.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.HttpListener.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.Mail.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.NameResolution.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.NetworkInformation.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.Ping.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.Primitives.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.Requests.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.Security.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.ServicePoint.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.Sockets.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.WebClient.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.WebHeaderCollection.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.WebProxy.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.WebSockets.Client.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Net.WebSockets.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Numerics.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Numerics.Vectors.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.ObjectModel.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Reflection.DispatchProxy.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Reflection.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Reflection.Emit.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Reflection.Emit.ILGeneration.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Reflection.Emit.Lightweight.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Reflection.Extensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Reflection.Metadata.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Reflection.Primitives.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Reflection.TypeExtensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Resources.Reader.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Resources.ResourceManager.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Resources.Writer.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.CompilerServices.VisualC.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.Extensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.Handles.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.InteropServices.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.InteropServices.RuntimeInformation.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.InteropServices.WindowsRuntime.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.Intrinsics.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.Loader.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.Numerics.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Formatters.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Json.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Primitives.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Runtime.Serialization.Xml.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Security.Claims.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Algorithms.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Cng.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Csp.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Encoding.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.Primitives.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Security.Cryptography.X509Certificates.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Security.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Security.Principal.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Security.SecureString.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.ServiceModel.Web.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.ServiceProcess.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Text.Encoding.CodePages.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Text.Encoding.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Text.Encoding.Extensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Text.Encodings.Web.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Text.RegularExpressions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Threading.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Threading.Overlapped.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.Dataflow.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.Extensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Threading.Tasks.Parallel.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Threading.Thread.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Threading.ThreadPool.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Threading.Timer.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Transactions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Transactions.Local.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.ValueTuple.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Web.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Web.HttpUtility.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Windows.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Xml.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Xml.Linq.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Xml.ReaderWriter.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Xml.Serialization.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Xml.XDocument.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Xml.XmlDocument.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Xml.XmlSerializer.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Xml.XPath.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\System.Xml.XPath.XDocument.dll" />
+    <None Include="bin\Release\netcoreapp3.1\refs\WindowsBase.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Cng.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Security.Cryptography.Pkcs.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\native\libzstd.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\native\snappy32.dll" />
+    <None Include="bin\Release\netcoreapp3.1\runtimes\win\native\snappy64.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Select.Html.dep" />
+    <None Include="bin\Release\netcoreapp3.1\Select.HtmlToPdf.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ServiceStack.Common.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ServiceStack.Interfaces.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ServiceStack.Redis.dll" />
+    <None Include="bin\Release\netcoreapp3.1\ServiceStack.Text.dll" />
+    <None Include="bin\Release\netcoreapp3.1\SharpCompress.dll" />
+    <None Include="bin\Release\netcoreapp3.1\SixLabors.Core.dll" />
+    <None Include="bin\Release\netcoreapp3.1\SixLabors.Fonts.dll" />
+    <None Include="bin\Release\netcoreapp3.1\SixLabors.ImageSharp.dll" />
+    <None Include="bin\Release\netcoreapp3.1\StackExchange.Redis.dll" />
+    <None Include="bin\Release\netcoreapp3.1\StackExchange.Redis.WordSearch.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Syncfusion.Compression.Portable.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Syncfusion.HtmlConverter.Portable.dll" />
+    <None Include="bin\Release\netcoreapp3.1\Syncfusion.Pdf.Portable.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Collections.Immutable.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Composition.AttributedModel.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Composition.Convention.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Composition.Hosting.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Composition.Runtime.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Composition.TypedParts.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Configuration.ConfigurationManager.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Diagnostics.PerformanceCounter.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Drawing.Common.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Formats.Asn1.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.IO.Packaging.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.IO.Pipelines.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Net.Http.Formatting.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Net.WebSockets.WebSocketProtocol.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Runtime.Caching.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Security.AccessControl.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Security.Cryptography.Cng.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Security.Cryptography.Pkcs.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Security.Cryptography.Xml.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Security.Permissions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Security.Principal.Windows.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Text.Json.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Threading.Channels.dll" />
+    <None Include="bin\Release\netcoreapp3.1\System.Windows.Extensions.dll" />
+    <None Include="bin\Release\netcoreapp3.1\TestaCache.NetStandard.dll" />
+    <None Include="bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.resources.dll" />
+    <None Include="bin\Release\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v19.1">
+      <HintPath>Libs\DevExpress.Data.v19.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Office.v19.1.Core">
+      <HintPath>Libs\DevExpress.Office.v19.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Pdf.v19.1.Core">
+      <HintPath>Libs\DevExpress.Pdf.v19.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v19.1.Core">
+      <HintPath>Libs\DevExpress.Printing.v19.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.RichEdit.v19.1.Core">
+      <HintPath>Libs\DevExpress.RichEdit.v19.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraRichEdit.v19.1">
+      <HintPath>Libs\DevExpress.XtraRichEdit.v19.1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>Libs\system.windows.forms.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Libs\DevExpress.Data.v12.2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.Data.v19.1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.Office.v12.2.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.Office.v18.1.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.Office.v19.1.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.Pdf.v19.1.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.Printing.v12.2.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.Printing.v19.1.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.RichEdit.v12.2.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.RichEdit.v19.1.Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.Utils.v12.2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.XtraEditors.v11.1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\devexpress.xtraprinting.v11.2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.XtraRichEdit.v10.2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\devexpress.xtrarichedit.v16.1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\DevExpress.XtraRichEdit.v19.1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Libs\system.windows.forms.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\icudt49.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\icuin49.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\icuuc49.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qdds.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qgif.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qicns.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qico.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qjp2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qjpeg.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qmng.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qsvg.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qtga.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qtiff.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qwbmp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\imageformats\qwebp.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\libEGL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\libGLESv2.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\platforms\qminimal.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\platforms\qoffscreen.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\platforms\qwindows.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Core.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Gui.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Multimedia.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5MultimediaWidgets.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Network.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5OpenGL.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Positioning.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5PrintSupport.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Qml.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Quick.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Sensors.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Sql.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Svg.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5WebChannel.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5WebKit.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5WebKitWidgets.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Qt5Widgets.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\Syncfusion.WebKitWrapper">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="QtBinariesWindows\zlib1.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+
+</Project>

@@ -1,0 +1,186 @@
+﻿@{
+    ViewBag.ID_MENU_CHA = "action";
+    ViewBag.ID_MENU = "list";
+
+    ViewData["Title"] = "Danh sách cache kết quả";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row page-titles">
+    <div class="col-md-5 col-12 align-self-center">
+        <h3 class="text-themecolor mb-0">@ViewData["Title"]</h3>
+    </div>
+    <div class="col-md-7 col-12 align-self-center justify-content-end d-none d-md-flex">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="javascript:void(0)">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item active">@ViewData["Title"]</li>
+        </ol>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-12 col-md-12 pd-3">
+            <div class="card">
+                <div class="card-body">
+                    <form name="frmTKiem">
+                        <div class="row">
+                            <div class="col col-3">
+                                <div class="form-group">
+                                    <label>Nội dung tìm kiếm</label>
+                                    <input type="text" class="form-control" name="search" placeholder="Tên thủ tục" />
+                                </div>
+                            </div>
+                            <div class="col col-2">
+                                <div class="form-group">
+                                    <label>Database Cache</label>
+                                    <select class="select2 form-control custom-select" name="db_index" style="width:100%">
+                                        <option value="">Chọn database cache</option>
+                                        <option value="0">Database 0</option>
+                                        <option value="1">Database 1</option>
+                                        <option value="2">Database 2</option>
+                                        <option value="3">Database 3</option>
+                                        <option value="4">Database 4</option>
+                                        <option value="5">Database 5</option>
+                                        <option value="6">Database 6</option>
+                                        <option value="7">Database 7</option>
+                                        <option value="8">Database 8</option>
+                                        <option value="9">Database 9</option>
+                                        <option value="10">Database 10</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-3" style="padding-top:21px;">
+                                <button type="button" class="btn btn-primary btn-sm wd-30p" id="btnFormTimKiem">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div class="table-responsive scrollable" style="max-height:450px">
+                                    <table id="tableDsCache" class="table table-bordered table-fixed fixed-header">
+                                        <thead class="font-weight-bold">
+                                            <tr class="text-center uppercase" style="background-color: #1e88e5;color:#FFF;">
+                                                <th width="4%">STT</th>
+                                                <th width="86%">Key cache</th>
+                                                <th width="3%"></th>
+                                                <th width="3%"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="bodyDsCache">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="inside-modal" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-inside">
+        <div class="modal-content">
+            <div class="modal-header py-1">
+                <h4 class="modal-title" id="titleUpdateContract">Nội dung cache: <span id="key_cache"></span></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <button type="button" class="btn btn-primary btn-sm wd-30p" style="width:85px;margin-bottom:5px;" id="btnFormatJson">
+                            <i class="fas fa-brackets-curly"></i> Format
+                        </button>
+                    </div>
+                    <div class="col-lg-12 col-md-12">
+                        <textarea class="form-control" readonly="readonly" id="noi_dung_cache" style="font-weight:unset;font-size:13px;height:600px;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/html" id="templateDsKeyCache">
+    <% if(ds_key_cache.length > 0){
+    _.forEach(ds_key_cache, function(item,index) { %>
+    <tr>
+        <td style="text-align: center;padding:0.3rem;"><%- (index+1) %></td>
+        <td style="text-align: left;padding:0.3rem;"><%- item %></td>
+        <td style="text-align: center;padding:0.3rem;">
+            <a href="#" onclick="xemCache('<%- item %>')"><i class="fa fa-eye" aria-hidden="true"></i></a>
+        </td>
+        <td style="text-align: center;padding:0.3rem;">
+            <a href="#" onclick="xoaCache('<%- item %>')"><i class="fas fa-trash-alt"></i></a>
+        </td>
+    </tr>
+    <% })}else{ %>
+    <tr>
+        <td class="text-center text-danger" style="padding: 0.3rem;" colspan="5">Không có dữ liệu hiển thị</td>
+    </tr>
+    <% } %>
+</script>
+@section scripts{
+    <script>
+        var dsKeyCache = [];
+        var _service = new Service();
+        var _notifyService = new NotifyService();
+        var _frmTKiem = new FormService("frmTKiem");
+        var _btnFormTimKiem = new ButtonService("btnFormTimKiem");
+        function showModal() {
+            $('#inside-modal .nav-tabs.profile-tab').tabdrop();
+            $("#inside-modal").modal("show");
+            $(".page-wrapper").addClass("position-relative");
+            $("#inside-modal").addClass("position-absolute");
+            $("#inside-modal").css("padding-right", "");
+            $("#inside-modal").css("padding-left", "");
+            $("#inside-modal").css("padding-top", "50px");
+            $("#inside-modal").css("z-index", "9");
+            $('.modal-backdrop').hide();
+            $('body').removeClass("modal-open");
+            $('body').css("padding-right", "0px");
+        }
+        function getData() {
+            var obj = _frmTKiem.getJsonData();
+            _service.postData("/cache/getallkeyresponse", obj).then(res => {
+                dsKeyCache = res;
+                ESUtil.genHTML("templateDsKeyCache", "bodyDsCache", { ds_key_cache: dsKeyCache });
+                $(".ps-scrollbar-x-rail").css({ "left": "0px", "bottom": "0px" });
+                $(".ps-scrollbar-x").css({ "left": "0px", "width": "0px" });
+                $(".ps-scrollbar-y-rail").css({ "top": "0px", "right": "0px", "height": "450px" });
+                $(".ps-scrollbar-y").css({ "top": "0px", "height": "419px" });
+            });
+        }
+        function xemCache(key_cache) {
+            $("#key_cache").html(key_cache);
+            _service.postData("/cache/get", { key: key_cache }).then(res => {
+                $("#noi_dung_cache").val(res);
+                showModal();
+            });
+        }
+        function xoaCache(key_cache) {
+            _notifyService.confirmDelete("Bạn có chắc chắn muốn xóa cache này không?", "", val => {
+                _service.postData("/cache/delete", { key: key_cache }).then(res => {
+                    getData();
+                    _notifyService.success(res);
+                });
+            });
+        }
+        $(document).ready(function () {
+            _btnFormTimKiem.click(function () {
+                getData();
+            });
+            $("#btnFormatJson").click(function () {
+                var ugly = document.getElementById('noi_dung_cache').value;
+                var obj = JSON.parse(ugly);
+                var pretty = JSON.stringify(obj, undefined, 4);
+                document.getElementById('noi_dung_cache').value = pretty;
+            });
+        });
+        getData();
+    </script>
+}

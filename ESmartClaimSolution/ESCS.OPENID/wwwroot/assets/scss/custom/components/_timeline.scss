@@ -1,0 +1,63 @@
+// ###############################################
+// Timeline
+// ############################################### 
+.timeline {
+	position: relative;
+}
+
+.timeline:before {
+	content: '';
+	position: absolute;
+	left: 15px;
+	width: 4px;
+	top: 0;
+	bottom: 0;
+	background-color: #EBEDF3;
+}
+
+.timeline .timeline-item {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.timeline .timeline-item .timeline-label {
+	flex-shrink: 0;
+	font-size: 12px;
+	position: relative;
+	display:flex;
+	justify-content:space-between;
+}
+
+.timeline .timeline-item .timeline-badge {
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	background: white;
+	width: 13px;
+	height: 13px;
+	border-radius: 100%;
+	display: flex;
+	-webkit-box-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	z-index: 1;
+	position: relative;
+	margin-top: 1px;
+	margin-left: 0.5rem;
+	padding: 3px !important;
+	border: 6px solid #ffffff !important;
+	font-size: 1rem !important;
+}
+
+.timeline .timeline-item .timeline-content {
+	color: #8392a5;
+	display: flex;
+	justify-content: space-between;
+}

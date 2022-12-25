@@ -1,0 +1,312 @@
+﻿@{
+    ViewBag.ID_MENU_CHA = "partner";
+    ViewBag.ID_MENU = "index";
+
+    ViewData["Title"] = "Danh sách đối tác";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row page-titles">
+    <div class="col-md-5 col-12 align-self-center">
+        <h3 class="text-themecolor mb-0">@ViewData["Title"]</h3>
+    </div>
+    <div class="col-md-7 col-12 align-self-center justify-content-end d-none d-md-flex">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="javascript:void(0)">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item active">@ViewData["Title"]</li>
+        </ol>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-12 col-md-12 pd-3">
+            <div class="card">
+                <div class="card-body">
+                    <form name="frmTKiem">
+                        <div class="row">
+                            <div class="col col-4">
+                                <div class="form-group">
+                                    <label>Nội dung tìm kiếm</label>
+                                    <input type="text" class="form-control" name="search" placeholder="Nhập mã hệ thống/tên hệ thống/điện thoại/email/số hợp đồng" />
+                                </div>
+                            </div>
+                            <div class="col col-2">
+                                <div class="form-group">
+                                    <label>Loại đối tác</label>
+                                    <select class="select2 form-control custom-select" name="cat_partner" style="width:100%">
+                                        <option value="">Chọn loại đối tác</option>
+                                        <option value="PUBLIC">Đối tác ngoài</option>
+                                        <option value="PRIVATE">Hệ thống nội bộ</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-2">
+                                <div class="form-group">
+                                    <label>Trạng thái</label>
+                                    <select class="select2 form-control custom-select" name="isactive" style="width:100%">
+                                        <option value="">Chọn trạng thái</option>
+                                        <option value="1">Đang sử dụng</option>
+                                        <option value="0">Ngừng sử dụng</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-3" style="padding-top: 21px;">
+                                <button type="button" class="btn btn-primary btn-sm wd-30p" id="btnFormTimKiem">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-sm wd-30p" id="btnThemMoi">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div id="gridView" class="table-app"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="inside-modal" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-inside">
+        <div class="modal-content">
+            <div class="modal-header py-1">
+                <h4 class="modal-title" id="titleUpdateContract">Thông tin hệ thống đối tác</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12" style="padding:10px">
+                        <form name="frmPartner">
+                            <div class="row">
+                                <input type="hidden" name="parent_code" />
+                                <input type="hidden" name="organization" value="ORGANIZATION" />
+                                <input type="hidden" name="createdate" />
+                                <input type="hidden" name="createby" />
+                                <input type="hidden" name="updatedate" />
+                                <input type="hidden" name="updateby" />
+                                <div class="col-12">
+                                    <h6 style="font-weight:bold">Thông tin hệ thống</h6>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Mã hệ thống</label>
+                                        <input type="text" class="form-control" name="code" placeholder="Mã hệ thống">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tên hệ thống/đối tác</label>
+                                        <input type="text" class="form-control" name="name" placeholder="Tên hệ thống/đối tác">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tên đơn vị kết nối</label>
+                                        <input type="text" class="form-control" name="companyname" placeholder="Tên đơn vị kết nối">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Người quản lý</label>
+                                        <input type="text" class="form-control" name="ceo_name" placeholder="Người quản lý">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Địa chỉ đơn vị</label>
+                                        <input type="text" class="form-control" name="address" placeholder="Địa chỉ đơn vị">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Email</label>
+                                        <input type="text" class="form-control" name="email" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Điện thoại</label>
+                                        <input type="text" class="form-control" name="phone" placeholder="Số điện thoại">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label>Mã số thuế</label>
+                                        <input type="text" class="form-control" name="contractno" placeholder="Mã số thuế">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label>Website</label>
+                                        <input type="text" class="form-control" name="website" placeholder="Link website">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Ngày bắt đầu</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control datepicker" display-format="date" value-format="number" required name="effectivedate" placeholder="dd/mm/yyyy">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><span class="ti-calendar"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Ngày kết thúc</label>
+                                        <div class="input-group">
+                                            <input type="text" class="form-control datepicker" display-format="date" value-format="number" required name="expirationdate" placeholder="dd/mm/yyyy">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><span class="ti-calendar"></span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label>Mã api login</label>
+                                        <input type="text" class="form-control" name="action_login" placeholder="Mã api login">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Loại đối tác</label>
+                                        <select class="select2 form-control custom-select" name="cat_partner" style="width:100%">
+                                            <option value="PRIVATE">Hệ thống nội bộ</option>
+                                            <option value="PUBLIC">Đối tác ngoài</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Hệ thống chủ quản</label>
+                                        <select class="select2 form-control custom-select" name="ismaster" style="width:100%">
+                                            <option value="0">Không quản lý trực tiếp</option>
+                                            <option value="1">Hệ thống quản lý trực tiếp</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Trạng thái</label>
+                                        <select class="select2 form-control custom-select" name="isactive" style="width:100%">
+                                            <option value="1">Đang sử dụng</option>
+                                            <option value="0">Ngừng sử dụng</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <label>Mô tả chi tiết</label>
+                                        <input type="text" class="form-control" name="description" placeholder="Mô tả chi tiết">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 style="font-weight:bold">Cấu hình kết nối</h6>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/app/services/PartnerService.js"></script>
+    <script>
+        const GRID_HO_SO_SO_DONG = 12;
+        var objDanhMuc = {};
+        var _commonService = new CommonService();
+        var _notifyService = new NotifyService();
+        var _frmTKiem = new FormService("frmTKiem");
+        var _frmPartner = new FormService("frmPartner");
+        var _partnerService = new PartnerService();
+        var configColumn = [
+            { field: "r__", title: "STT", width: "4%", hozAlign: "center", headerSort: false },
+            { field: "code", title: "Mã", width: "13%", headerSort: false, formatter: "html" },
+            { field: "name", title: "Tên hệ thống đối tác", width: "25%", headerSort: false },
+            { field: "contractno", title: "Số HĐ", width: "8%", headerSort: false, hozAlign: "center" },
+            { field: "email", title: "Email", width: "10%", headerSort: false },
+            { field: "phone", title: "Điện thoại", width: "6%", hozAlign: "center", headerSort: false },
+            { field: "effectivedate_text", title: "Thời hạn hợp đồng", width: "12%", hozAlign: "center", headerSort: false },
+            { field: "cat_partner_text", title: "Loại đối tác", width: "8%", hozAlign: "center", headerSort: false },
+            { field: "companyname", title: "Đơn vị", width: "15%", headerSort: false },
+            { field: "ceo_name", title: "Quản lý", width: "8%", headerSort: false },
+            { field: "address", title: "Địa chỉ", width: "15%", headerSort: false },
+            { field: "taxcode", title: "Mã số thuế", width: "8%", headerSort: false, hozAlign: "center" },
+            { field: "website", title: "Website", width: "8%", headerSort: false },
+            { field: "action_login", title: "Mã api login", width: "10%", hozAlign: "center", headerSort: false },
+            { field: "action_login_name", title: "Tên api login", width: "15%", headerSort: false },
+            { field: "isactive_text", title: "Trạng thái", width: "8%", hozAlign: "center", headerSort: false },
+        ];
+        var _gridView = new GridViewService("gridView", configColumn, getPaging, rowClick);
+        function getPaging(trang) {
+            var objTimKiem = _frmTKiem.getJsonData();
+            objTimKiem.search = objTimKiem.search.trim();
+            objTimKiem.trang = trang;
+            objTimKiem.so_dong = GRID_HO_SO_SO_DONG;
+            _partnerService.getPaging(objTimKiem).then(res => {
+                _gridView.setDataSource(res, trang);
+                if (res.data !== null && res.data.length < GRID_HO_SO_SO_DONG) {
+                    _gridView.addRowEmpty(GRID_HO_SO_SO_DONG - res.data.length);
+                }
+            });
+        }
+        function rowClick(data, row) {
+            _partnerService.getDetail(data.code).then(res => {
+                console.log(res);
+                for (var i = 0; i < row.getTable().getRows().length; i++) {
+                    row.getTable().getRows()[i].deselect();
+                }
+                row.select();
+                showModalBoiThuong();
+            });
+        }
+        function showModalBoiThuong(ishow = true) {
+            $('#inside-modal .nav-tabs.profile-tab').tabdrop();
+            $("#inside-modal").modal("show");
+            $(".page-wrapper").addClass("position-relative");
+            $("#inside-modal").addClass("position-absolute");
+            $("#inside-modal").css("padding-right", "");
+            $("#inside-modal").css("padding-left", "");
+            $("#inside-modal").css("padding-top", "50px");
+            $("#inside-modal").css("z-index", "9");
+            $('.modal-backdrop').hide();
+            $('body').removeClass("modal-open");
+            $('body').css("padding-right", "0px");
+            if (!ishow) {
+                $("#inside-modal").modal("hide");
+            }
+        }
+        function anHienDiv(div, hthi = true) {
+            if (hthi) {
+                $("#" + div).removeClass("d-none");
+            }
+            else {
+                $("#" + div).addClass("d-none");
+            }
+        }
+        $(document).ready(function () {
+            $("#btnFormTimKiem").click(function () {
+                getPaging(1);
+            });
+            $("#btnThemMoi").click(function () {
+                showModalBoiThuong();
+            });
+            $("#btnLuu").click(function () {
+
+            });
+            getPaging(1);
+        });
+    </script>
+}

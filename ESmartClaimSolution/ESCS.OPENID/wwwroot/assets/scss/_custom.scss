@@ -1,0 +1,52 @@
+.nav-link {
+    display: block;
+    padding: 0.5rem 0.5rem;
+}
+
+// ###############################################
+// table
+// ############################################### 
+.table-fixed          { overflow-y: auto; height: 100px; }
+.table-fixed thead th { position: sticky; top: 0; }
+
+.ps-container:hover>.ps-scrollbar-y-rail:hover>.ps-scrollbar-y {
+    background-color: rgba(30, 136, 229, 1);
+}
+
+.table th,
+.table td {
+    padding: 0.5rem;
+    vertical-align: top;
+    border-top: 1px solid #e8eef3;
+}
+
+// ###############################################
+// badge
+// ###############################################
+button:focus {
+    outline: none;
+}
+
+#inside-modal .modal-content {
+    height: calc(100vh - 50px);
+}
+
+.modal-main-content {
+    height: 67vh;
+}
+
+.scrollable {
+    position: relative;
+}
+
+._required::after {
+    content: "*";
+    color: red;
+	margin-left:2px;
+}
+
+.text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

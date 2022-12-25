@@ -1,0 +1,32 @@
+﻿@using ECSC.COMMON.Response;
+@{
+    var data = ViewBag.Data as BaseResponse<dynamic>;	
+    var mau_email = data.data_info["mau_email"];
+    var doi_tac = data.data_info["doi_tac"];
+	
+    var nsd = data.data_info["nsd"];
+    var lhnv_xe = data.data_info["lhnv_xe"];
+}
+<section style="width:800px">
+	<img style="width:100%" src="cid:MailBanner" />
+    @if (mau_email.url_banner != null && !string.IsNullOrEmpty(mau_email.url_banner.ToString()))
+    {
+        
+    }
+</section>
+<section style="width:800px">
+    <p><b>Kính gửi</b>: @nsd.ten</p>
+    <p>Công ty cổ phần giải pháp bồi thường thông minh ESCS xin giới thiệu đến quý khách hàng các sản phẩm ứng dụng trong nghiệp vụ bồi thường bảo hiểm, đặc biệt trong đó có các nghiệp vụ bồi thường xe cơ giới rất thông minh</p>
+    <p><i>Các nghiệp vụ xe</i></p>
+    @foreach (var nv in lhnv_xe)
+    {
+        <p>+ @nv.ten (@nv.ma)</p>
+    }
+</section>
+<section style="width:800px; text-align:center">
+    <h2>@doi_tac.ten</h2>
+    <p>Địa chỉ: @doi_tac.dchi</p>
+    <p>Điện thoại: <a href="tel:@doi_tac.d_thoai">@doi_tac.d_thoai</a></p>
+    <p>Email: <a href="mailto:@doi_tac.email">@doi_tac.email</a></p>
+    <p>Website: <a href="https://escs.vn">https://escs.vn</a></p>
+</section>

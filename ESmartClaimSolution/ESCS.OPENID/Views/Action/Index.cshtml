@@ -1,0 +1,735 @@
+﻿@{
+    ViewBag.ID_MENU_CHA = "action";
+    ViewBag.ID_MENU = "list";
+
+    ViewData["Title"] = "Danh sách action api";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row page-titles">
+    <div class="col-md-5 col-12 align-self-center">
+        <h3 class="text-themecolor mb-0">@ViewData["Title"]</h3>
+    </div>
+    <div class="col-md-7 col-12 align-self-center justify-content-end d-none d-md-flex">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="javascript:void(0)">Trang chủ</a>
+            </li>
+            <li class="breadcrumb-item active">@ViewData["Title"]</li>
+        </ol>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Column -->
+        <div class="col-lg-12 col-md-12 pd-3">
+            <div class="card">
+                <div class="card-body">
+                    <form name="frmTKiem">
+                        <div class="row">
+                            <div class="col col-4">
+                                <div class="form-group">
+                                    <label>Nội dung tìm kiếm</label>
+                                    <input type="text" class="form-control" name="search" placeholder="Nhập mã action/tên action/tên thủ tục" />
+                                </div>
+                            </div>
+                            <div class="col col-1">
+                                <div class="form-group">
+                                    <label>Sử dụng Cache</label>
+                                    <select class="select2 form-control custom-select" name="ac_type_cache" style="width:100%">
+                                        <option value="">Chọn</option>
+                                        <option value="ALLOW_CACHE">Có</option>
+                                        <option value="NONE">Không</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-1">
+                                <div class="form-group">
+                                    <label>Notify</label>
+                                    <select class="select2 form-control custom-select" name="ac_send_notify" style="width:100%">
+                                        <option value="">Chọn</option>
+                                        <option value="NOTIFY">Có</option>
+                                        <option value="NONE">Không</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-2">
+                                <div class="form-group">
+                                    <label>Loại action</label>
+                                    <select class="select2 form-control custom-select" name="ac_action_type" style="width:100%">
+                                        <option value="">Chọn loại action</option>
+                                        <option value="EXCUTE_DB">Excute Database</option>
+                                        <option value="FILE">Thao tác file</option>
+                                        <option value="SENDMAIL">Gửi Email</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col col-2">
+                                <div class="form-group">
+                                    <label>Database</label>
+                                    <select class="select2 form-control custom-select" name="db_id" style="width:100%"></select>
+                                </div>
+                            </div>
+                            <div class="col col-2">
+                                <div class="form-group">
+                                    <label>Schema</label>
+                                    <select class="select2 form-control custom-select" name="sc_id" style="width:100%">
+                                        <option value="">Chọn schema</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mg-t-15">
+                            <div class="col col-3">
+                                <button type="button" class="btn btn-primary btn-sm wd-30p" id="btnFormTimKiem">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-sm wd-30p" id="btnThemMoi">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                                <a href="/action/gencode" target="_blank" id="btnGenCode" class="btn btn-primary btn-sm wd-30p">Gen Code</a>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <div id="gridAction" class="table-app"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="inside-modal" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-inside">
+        <div class="modal-content">
+            <div class="modal-header py-1">
+                <h4 class="modal-title" id="titleUpdateContract">Thông tin action api</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-12" style="padding:10px">
+                        <form name="frmAction">
+                            @*Thông tin action api (ac_time_live_cache -> divCauHinhAction)*@
+                            <div class="row">
+                                <div class="col-12">
+                                    <h6 style="font-weight:bold">Thông tin action api</h6>
+                                </div>
+                                <input type="hidden" name="ac_actionid" />
+                                <input type="hidden" name="ac_parent_actioncode" />
+                                <input type="hidden" name="ac_order_exc" value="1" />
+                                <input type="hidden" name="ac_is_async" value="SYNC" />
+                                <input type="hidden" name="ac_max_rq_cache" />
+                                <input type="hidden" name="ac_max_time_cache" />
+                                <input type="hidden" name="ac_json_input" />
+                                <input type="hidden" name="ac_json_output" />
+                                <input type="hidden" name="ac_createdate" />
+                                <input type="hidden" name="ac_createby" />
+                                <input type="hidden" name="ac_updatedate" />
+                                <input type="hidden" name="ac_updateby" />
+                                <input type="hidden" name="ac_isactive" value="1" />
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tên action api</label>
+                                        <input type="text" class="form-control ucfirst" name="ac_action_name" placeholder="Tên action api">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Loại action</label>
+                                        <select class="select2 form-control custom-select" required name="ac_action_type" style="width:100%">
+                                            <option value="EXCUTE_DB">Excute Database</option>
+                                            <option value="FILE">Thao tác File</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Sử dụng cache</label>
+                                        <select class="select2 form-control custom-select" required name="ac_type_cache" style="width:100%">
+                                            <option value="NONE">Không áp dụng</option>
+                                            <option value="ALLOW_CACHE">Sử dụng cache</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <input type="hidden" name="ac_send_notify" value="" />
+                                    <div class="form-group">
+                                        <label class="_required">Gửi thông báo</label>
+                                        <select class="select2 form-control custom-select" required name="is_ac_send_notify" style="width:100%">
+                                            <option value="0">Không có gửi thông báo</option>
+                                            <option value="1">Có gửi thông báo nếu có(Email, SMS, Notify)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Check DDOS</label>
+                                        <select class="select2 form-control custom-select" required name="ac_type_ddos" style="width:100%">
+                                            <option value="NONE">Không áp dụng</option>
+                                            <option value="APPLY">Áp dụng</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label>Action bị xóa cache</label>
+                                        <input type="text" class="form-control" name="ac_actions_clear_cache" placeholder="VD: 1SFQ2QLFHUDPA8C,FDWFVS3DVR2SERS">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Kiểm tra xác thực</label>
+                                        <select class="select2 form-control custom-select" required name="ac_check_authen" style="width:100%">
+                                            <option value="C">Bắt buộc kiểm tra</option>
+                                            <option value="K">Không kiểm tra</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Thực thi api gateway</label>
+                                        <select class="select2 form-control custom-select" required name="ac_api_gateway" style="width:100%">
+                                            <option value="C">Có thực thi</option>
+                                            <option value="K">Không thực thi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tạo file/tạo file ký số/xóa file</label>
+                                        <select class="select2 form-control custom-select" required name="ac_is_file" style="width:100%">
+                                            <option value="C">Có thao tác</option>
+                                            <option value="K">Không thao tác</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Api nội bộ/public</label>
+                                        <select class="select2 form-control custom-select" required name="ac_is_internal" style="width:100%">
+                                            <option value="PRIVATE">API Private</option>
+                                            <option value="PUBLIC">API public internet</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            @*Cấu hình gửi Notify*@
+                            <div class="row d-none" id="divCauHinhThongBao" style="margin-top: 20px">
+                                <div class="col-12">
+                                    <h6 style="font-weight:bold">Cấu hình gửi thông báo</h6>
+                                </div>
+                                <div class="col-12">
+                                    <div class="custom-control custom-checkbox" style="float:left; margin-right:20px">
+                                        <input type="checkbox" id="notify_NOTIFY" onchange="onThayDoiThongBao(this)" value="NOTIFY" class="custom-control-input ac_notify">
+                                        <label class="custom-control-label" for="notify_NOTIFY">Bắn notify ứng dụng</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox" style="float:left; margin-right:20px">
+                                        <input type="checkbox" id="notify_SMS" onchange="onThayDoiThongBao(this)" value="SMS" class="custom-control-input ac_notify">
+                                        <label class="custom-control-label" for="notify_SMS">Gửi SMS</label>
+                                    </div>
+                                    <div class="custom-control custom-checkbox" style="float:left; margin-right:20px">
+                                        <input type="checkbox" id="notify_EMAIL" onchange="onThayDoiThongBao(this)" value="EMAIL" class="custom-control-input ac_notify">
+                                        <label class="custom-control-label" for="notify_EMAIL">Gửi Email</label>
+                                    </div>
+                                </div>
+                            </div>
+                            @*Cấu hình thực thi api gateway*@
+                            <div class="row d-none" id="divCauHinhApiGateWay" style="margin-top: 20px">
+                                <div class="col-12">
+                                    <h6 style="font-weight:bold">Cấu hình api gateway trước khi thực thi</h6>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">URL call api</label>
+                                        <input type="text" class="form-control" name="ac_api_gateway_url" placeholder="VD:/api/contract/get">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Action callback</label>
+                                        <input type="text" class="form-control" name="ac_api_gateway_callback" placeholder="VD: DCURYW7D4A2TV0U">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Thực thi đồng bộ</label>
+                                        <select class="select2 form-control custom-select" required name="ac_api_gateway_sync" style="width:100%">
+                                            <option value="DBO">Đồng bộ</option>
+                                            <option value="BDB">Bất đồng bộ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            @*Excute DB*@
+                            <div class="row d-none" id="divExcuteDB" style="margin-top: 20px">
+                                <div class="col-12">
+                                    <h6 style="font-weight:bold">Excute database</h6>
+                                </div>
+                                <input type="hidden" name="exc_actionid" />
+                                <input type="hidden" name="exc_actioncode_source" />
+                                <input type="hidden" name="exc_createdate" />
+                                <input type="hidden" name="exc_createby" />
+                                <input type="hidden" name="exc_updatedate" />
+                                <input type="hidden" name="exc_updateby" />
+                                <input type="hidden" name="exc_isactive" />
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Mã action api</label>
+                                        <input type="text" class="form-control" name="exc_actioncode" readonly="readonly" placeholder="Mã action">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tên thủ tục</label>
+                                        <input type="text" class="form-control upper" name="exc_storedprocedure" placeholder="Tên thủ tục">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label>Package</label>
+                                        <input type="text" class="form-control upper" name="exc_package_name" placeholder="Tên package">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Kết quả trả về</label>
+                                        <select class="select2 form-control custom-select" required name="exc_type_exec" style="width:100%">
+                                            <option value="RETURN_NONE">Không trả về kết quả</option>
+                                            <option value="RETURN_SCALAR">Trả về 1 giá trị</option>
+                                            <option value="RETURN_SINGLE">Trả về 1 đối tượng</option>
+                                            <option value="RETURN_LIST">Trả về 1 danh sách</option>
+                                            <option value="RETURN_PAGING">Trả về danh sách và số dòng</option>
+                                            <option value="RETURN_MULTIPLE">Trả về nhiều danh sách</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Database</label>
+                                        <select class="select2 form-control custom-select" required name="db_id" style="width:100%">
+                                            <option value="">Chọn database</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Schema</label>
+                                        <select class="select2 form-control custom-select" required name="exc_schema_id" style="width:100%">
+                                            <option value="">Chọn schema</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            @*File*@
+                            <div class="row d-none" id="divFile" style="margin-top: 20px">
+                                <div class="col-12">
+                                    <h6 style="font-weight:bold">File</h6>
+                                </div>
+                                <input type="hidden" name="file_actionid" />
+                                <input type="hidden" name="file_actioncode_source" />
+                                <input type="hidden" name="file_createdate" />
+                                <input type="hidden" name="file_createby" />
+                                <input type="hidden" name="file_updatedate" />
+                                <input type="hidden" name="file_updateby" />
+                                <input type="hidden" name="file_isactive" />
+                                <input type="hidden" name="file_prefix_mini" value="thumnail" />
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Mã action api</label>
+                                        <input type="text" class="form-control" name="file_actioncode" readonly="readonly" placeholder="Mã action">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tên thủ tục</label>
+                                        <input type="text" class="form-control upper" name="file_storedprocedure" placeholder="Tên thủ tục">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label>Package</label>
+                                        <input type="text" class="form-control upper" name="file_package_name" placeholder="Tên package">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Kết quả trả về</label>
+                                        <select class="select2 form-control custom-select" required name="file_type_exec" style="width:100%">
+                                            <option value="RETURN_NONE">Không trả về kết quả</option>
+                                            <option value="RETURN_SCALAR">Trả về 1 giá trị</option>
+                                            <option value="RETURN_SINGLE">Trả về 1 đối tượng</option>
+                                            <option value="RETURN_LIST">Trả về 1 danh sách</option>
+                                            <option value="RETURN_PAGING">Trả về danh sách và số dòng</option>
+                                            <option value="RETURN_MULTIPLE">Trả về nhiều danh sách</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Database</label>
+                                        <select class="select2 form-control custom-select" required name="file_db_id" style="width:100%">
+                                            <option value="">Chọn database</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Schema</label>
+                                        <select class="select2 form-control custom-select" required name="file_schema_id" style="width:100%">
+                                            <option value="">Chọn schema</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Loại file lưu trữ</label>
+                                        <select class="select2 form-control custom-select" required name="file_type_file" style="width:100%">
+                                            <option value="TAI_LIEU">File tài liệu</option>
+                                            <option value="MAU_IN">File mẫu in</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Loại máy chủ file</label>
+                                        <select class="select2 form-control custom-select" required name="file_is_local" style="width:100%">
+                                            <option value="1">Máy chủ file là máy chủ web</option>
+                                            <option value="0">Máy chủ file độc lập</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Extension file</label>
+                                        <input type="text" class="form-control" name="file_extensions_file" placeholder="Extension file: VD: .png,.jpg">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">IP máy chủ file/đường dẫn gốc</label>
+                                        <input type="text" class="form-control" name="file_ip_remote" placeholder="IP máy chủ file/đường dẫn gốc">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="_required">Thư mục gốc</label>
+                                        <input type="text" class="form-control" name="file_base_folder" placeholder="Đường dẫn thư mục gốc">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="divCauHinhThongTinAnh" style="margin-top: 20px">
+                                <div class="col-12">
+                                    <p style="font-weight:bold"><u><i>+ Cấu hình thông tin ảnh</i></u></p>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Thay đổi kích thước file</label>
+                                        <select class="select2 form-control custom-select" required name="file_change_size" style="width:100%">
+                                            <option value="1">Có thay đổi kích thước</option>
+                                            <option value="0">Không thay đổi kích thước</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Dung lượng tối đa (Ảnh)</label>
+                                        <input type="number" min="0" max="1000000" class="form-control" name="file_max_content_length" placeholder="Dung lượng tối đa">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Độ rộng tối đa (Ảnh)</label>
+                                        <input type="number" min="0" max="1000000" class="form-control" name="file_max_width" placeholder="Độ rộng tối đa">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tạo thêm ảnh thumnail</label>
+                                        <select class="select2 form-control custom-select" required name="file_is_duplicate_mini" style="width:100%">
+                                            <option value="1">Có tạo ảnh thumnail</option>
+                                            <option value="0">Không tạo ảnh thumnail</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Dung lượng tối đa (Ảnh thumnail)</label>
+                                        <input type="number" min="0" max="1000000" class="form-control" name="file_max_content_mini" placeholder="Dung lượng tối đa">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Độ rộng tối đa (Ảnh thumnail)</label>
+                                        <input type="number" min="0" max="1000000" class="form-control" name="file_max_width_file_mini" placeholder="Độ rộng tối đa">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="divCauHinhThongTinMayChuFile" style="margin-top: 20px">
+                                <div class="col-12">
+                                    <p style="font-weight:bold"><u><i>+ Cấu hình thông tin máy chủ</i></u></p>
+                                </div>
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tài khoản máy chủ</label>
+                                        <input type="text" class="form-control" name="file_user_remote" placeholder="Tài khoản máy chủ">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Mật khẩu máy chủ</label>
+                                        <input type="password" class="form-control" name="file_pas_remote">
+                                    </div>
+                                </div>
+                            </div>
+                            @*Mail*@
+                            <div class="row d-none" id="divMail" style="margin-top: 20px">
+                                <div class="col-12">
+                                    <h6 style="font-weight:bold">Gửi Email</h6>
+                                </div>
+                                <input type="hidden" name="mail_actionid" />
+                                <input type="hidden" name="mail_actioncode_source" />
+                                <input type="hidden" name="mail_createdate" />
+                                <input type="hidden" name="mail_createby" />
+                                <input type="hidden" name="mail_updatedate" />
+                                <input type="hidden" name="mail_updateby" />
+                                <input type="hidden" name="mail_isactive" />
+
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Mã action api</label>
+                                        <input type="text" class="form-control" name="mail_actioncode" readonly="readonly" placeholder="Mã action">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tên thủ tục</label>
+                                        <input type="text" class="form-control upper" name="mail_storedprocedure" placeholder="Tên thủ tục">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Package</label>
+                                        <input type="text" class="form-control upper" name="mail_package_name" placeholder="Tên package">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Kết quả trả về</label>
+                                        <select class="select2 form-control custom-select" required name="mail_type_exec" style="width:100%">
+                                            <option value="RETURN_NONE">Không trả về kết quả</option>
+                                            <option value="RETURN_SCALAR">Trả về 1 giá trị</option>
+                                            <option value="RETURN_SINGLE">Trả về 1 đối tượng</option>
+                                            <option value="RETURN_LIST">Trả về 1 danh sách</option>
+                                            <option value="RETURN_PAGING">Trả về danh sách và số dòng</option>
+                                            <option value="RETURN_MULTIPLE">Trả về nhiều danh sách</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Schema</label>
+                                        <select class="select2 form-control custom-select" required name="mail_schema_id" style="width:100%">
+                                            <option value="">Chọn schema</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Database</label>
+                                        <select class="select2 form-control custom-select" required name="mail_db_id" style="width:100%">
+                                            <option value="">Chọn database</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Đính kèm file</label>
+                                        <select class="select2 form-control custom-select" required name="mail_is_attach_file" style="width:100%">
+                                            <option value="0">Không đính kèm file</option>
+                                            <option value="1">Có đính kèm file</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" id="divCauHinhThongTinMayChuFileMail" style="margin-top: 20px">
+                                <div class="col-12">
+                                    <p style="font-weight:bold"><u><i>+ Cấu hình thông tin máy chủ file</i></u></p>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Loại file lưu trữ</label>
+                                        <select class="select2 form-control custom-select" required name="mail_type_file" style="width:100%">
+                                            <option value="TAI_LIEU">File tài liệu</option>
+                                            <option value="MAU_IN">File mẫu in</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Loại máy chủ file</label>
+                                        <select class="select2 form-control custom-select" required name="mail_is_local" style="width:100%">
+                                            <option value="1">Máy chủ file là máy chủ web</option>
+                                            <option value="0">Máy chủ file độc lập</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">IP máy chủ file/đường dẫn gốc</label>
+                                        <input type="text" class="form-control" name="mail_ip_remote" placeholder="IP máy chủ file/đường dẫn gốc">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Đường dẫn thư mục gốc</label>
+                                        <input type="text" class="form-control" name="mail_base_folder" placeholder="Đường dẫn thư mục gốc">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tài khoản máy chủ</label>
+                                        <input type="text" class="form-control" name="mail_user_remote" placeholder="Tài khoản máy chủ">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Mật khẩu máy chủ</label>
+                                        <input type="password" class="form-control" name="mail_pas_remote">
+                                    </div>
+                                </div>
+                            </div>
+                            @*Thông tin cấu hình action api*@
+                            <div class="row d-none" id="divCauHinhAction" style="margin-top: 20px">
+                                <div class="col-12">
+                                    <h6 style="font-weight:bold">Thông tin cấu hình action</h6>
+                                </div>
+                                <input type="hidden" name="acf_actionid" />
+                                <input type="hidden" name="acf_envcode" />
+                                <input type="hidden" name="acf_id_server_file" />
+                                <input type="hidden" name="acf_createdate" />
+                                <input type="hidden" name="acf_createby" />
+                                <input type="hidden" name="acf_updatedate" />
+                                <input type="hidden" name="acf_updateby" />
+                                <input type="hidden" name="acf_isactive" />
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tiền tố key cache</label>
+                                        <input type="text" class="form-control upper" name="acf_prefix_key_cache" placeholder="Tiền tố key cache. VD: HANG_XE">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Tên connection cache</label>
+                                        <input type="text" class="form-control" name="acf_cache_connection_name" placeholder="Tên connection cache">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Mật khẩu truy cập cache</label>
+                                        <input type="password" class="form-control" name="acf_cache_password" placeholder="">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Database cache</label>
+                                        <select class="select2 form-control custom-select" required name="acf_db_cache" style="width:100%">
+                                            <option value="0">Database 0</option>
+                                            <option value="1">Database 1</option>
+                                            <option value="2">Database 2</option>
+                                            <option value="3">Database 3</option>
+                                            <option value="4">Database 4</option>
+                                            <option value="5">Database 5</option>
+                                            <option value="6">Database 6</option>
+                                            <option value="7">Database 7</option>
+                                            <option value="8">Database 8</option>
+                                            <option value="9">Database 9</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Server cache</label>
+                                        <select class="select2 form-control custom-select" required name="acf_id_server_cache" style="width:100%"></select>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Port</label>
+                                        <input type="number" min="0" max="9999" maxlength="4" class="form-control" name="acf_cache_port" placeholder="Port">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Thời gian sống (phút)</label>
+                                        <input type="number" min="0" max="9999" maxlength="4" class="form-control" name="ac_time_live_cache" placeholder="Time live">
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label class="_required">Phân chia cache theo param</label>
+                                        <input type="text" class="form-control" name="acf_param_cache" placeholder="Phân chia cache theo param: VD: b_ma_doi_tac_nsd">
+                                    </div>
+                                </div>
+                            </div>
+                            @*Thông tin cấu hình ddos*@
+                            <div class="row" id="divDDOS" style="margin-top:20px">
+                                <div class="col-12">
+                                    <h6 style="font-weight:bold">Thông tín cấu hình kiểm tra DDOS</h6>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Số lượng request tối đa (ddos)</label>
+                                        <input type="number" min="0" max="9999" maxlength="4" class="form-control" name="ac_max_rq_ddos" placeholder="Số lượng request tối đa">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Thời gian cho phép (phút) (ddos)</label>
+                                        <input type="number" min="0" max="9999" maxlength="4" class="form-control" name="ac_max_time_ddos" placeholder="Thời gian cho phép (phút)">
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="form-group">
+                                        <label class="_required">Thời gian khóa hành động</label>
+                                        <input type="number" min="0" max="9999" maxlength="4" class="form-control" name="ac_time_lock" placeholder="Thời gian khóa hành động">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mg-t-15">
+                                <div class="col-12">
+                                    <button type="button" class="btn btn-primary btn-sm wd-80" id="btnLuuAction">
+                                        <i class="fa fa-save"></i>&nbsp;&nbsp;Lưu
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary btn-sm wd-100 ml-2" id="btnXoaCache">
+                                        <i class="fa fa-times text-danger"></i>&nbsp;&nbsp;Xóa cache
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary btn-sm wd-80 ml-2 disabled" id="btnXoaAction">
+                                        <i class="fas fa-trash-alt"></i>&nbsp;&nbsp;Xóa
+                                    </button>
+                                    <button type="button" class="btn btn-primary btn-sm wd-80 float-right" id="btnClone">
+                                        <i class="far fa-clone"></i>&nbsp;&nbsp;Clone
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/app/services/ActionService.js"></script>
+    <script src="~/app/Action.js"></script>
+}

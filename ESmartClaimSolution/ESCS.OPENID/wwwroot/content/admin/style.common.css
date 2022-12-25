@@ -1,0 +1,51 @@
+﻿.row-item {
+    margin-left: unset !important;
+    margin-right: unset !important;
+}
+.form-control{
+    border-radius:0.35rem !important;
+}
+._required:after {
+    content: "(*)";
+    color: red;
+}
+.select2-selection {
+    border-radius: 0.35rem !important;
+}
+.select2-selection:focus {
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: none !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+.form-control:focus {
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: none !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+.btn{
+    padding: 5.8px 12px !important;
+}
+.btn-tim-kiem {
+    margin-top:23px;
+}
+input[type=text]:focus + .input-group-addon {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+.dtp input[type=text] {
+    border-radius: 0.35rem 0 0 0.35rem !important;
+}
+.input-group-addon{
+    height:33px;
+}
+.form-group{
+    margin-bottom: unset;
+}
+.pagination-grid{
+    float:right;
+}
+.invalid{
+    margin: 0 !important;
+    color:red;
+}
